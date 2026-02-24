@@ -1,6 +1,8 @@
 import { AppCombobox } from "@/components/controls/AppCombobox";
+import { AppStepper } from "@/components/controls/AppStepper";
 import { Button } from "@/components/controls/Button";
 import { FormField } from "@/components/controls/FormField";
+import { Logo } from "@/components/custom/Logo";
 import { Upload } from "lucide-react";
 
 const vacancies = [
@@ -38,10 +40,20 @@ export default function Home() {
       </div>
 
       <div className="p-10 flex flex-col gap-8">
-      <h1 className="font-heading text-2xl">Настройка вакансии</h1>
-      
-      <AppCombobox options={vacancies} />
-    </div>
+        <h1 className="font-heading text-2xl">Настройка вакансии</h1>
+
+        <AppCombobox options={vacancies} />
+      </div>
+
+      <div className="space-y-10">
+        {/* Сейчас мы на первом этапе — загрузке вакансии */}
+        <AppStepper currentStep={1} />
+
+        {/* Здесь будет основной контент страницы */}
+        <section className="px-20">
+          <h2 className="font-heading text-3xl">Загрузить вакансию</h2>
+        </section>
+      </div>
     </div>
   );
 }

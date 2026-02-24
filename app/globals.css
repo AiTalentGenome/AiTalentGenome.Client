@@ -23,8 +23,12 @@
   --color-text-muted: #606367;
   --color-input-bg: #F2F4F7;
   --color-select-bg: #F2F4F7;
+  --color-footer-bg: #F5F5F5;
+  --color-footer-text: #323333;
 
   --radius-select: 16px;
+
+  --tracking-logo: 0.02em;
 }
 
 :root {
@@ -55,6 +59,7 @@
     /* Теперь border-border и outline-ring будут работать */
     @apply border-border outline-ring/50;
   }
+
   body {
     /* Ошибка bg-background исчезнет здесь */
     @apply bg-background text-foreground font-body;
