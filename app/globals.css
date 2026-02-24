@@ -1,0 +1,62 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  /* 1. Шрифты из вашего layout.tsx */
+  --font-heading: var(--font-unbounded);
+  --font-body: var(--font-manrope);
+  --font-primary-button: (var(--font-manrope));
+  --font-input-placeholder: (var(--font-manrope));
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-text-muted: #606367;
+  --color-input-bg: #F2F4F7;
+  --color-select-bg: #F2F4F7;
+
+  --radius-select: 16px;
+}
+
+:root {
+  /* Цвета вашего коммерческого проекта */
+  --primary: #2494B3;
+  --primary-foreground: #ffffff;
+  --secondary: #919999;
+  --secondary-foreground: #ffffff;
+
+  /* Системные цвета для shadcn */
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #2494B3;
+}
+
+.dark {
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --primary: #2494B3;
+  --secondary: #4b5563;
+  --border: #1e293b;
+}
+
+@layer base {
+  * {
+    /* Теперь border-border и outline-ring будут работать */
+    @apply border-border outline-ring/50;
+  }
+  body {
+    /* Ошибка bg-background исчезнет здесь */
+    @apply bg-background text-foreground font-body;
+  }
+}
