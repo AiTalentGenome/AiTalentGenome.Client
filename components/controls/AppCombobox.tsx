@@ -24,7 +24,8 @@ interface AppComboboxProps {
 export const AppCombobox = ({ 
   options, 
   placeholder = "Выбрать из моих вакансий",
-  searchPlaceholder = "Поиск"
+  searchPlaceholder = "Поиск",
+  onSelect
 }: AppComboboxProps) => {
   const [open, setOpen] = React.useState(false)
   const [searchValue, setSearchValue] = React.useState("")
@@ -75,6 +76,8 @@ export const AppCombobox = ({
                 onClick={() => {
                   setSelectedLabel(option.label)
                   setOpen(false)
+                  onSelect?.(option.label); // Вызываем родительский метод
+                  setSearchValue("");
                 }}
                 className={cn(
                   "px-4 py-2 rounded-[10px] cursor-pointer text-[16px] font-normal transition-colors",

@@ -5,12 +5,19 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
+  /* Определяем твои ключевые разрешения */
+  --breakpoint-pc-sm: 1280px;
+  --breakpoint-pc-md: 1440px;
+  --breakpoint-pc-lg: 1920px;
+
   /* 1. Шрифты из вашего layout.tsx */
   --font-heading: var(--font-unbounded);
   --font-body: var(--font-manrope);
+  --font-open-sans: var(--font-open-sans);
   --font-primary-button: (var(--font-manrope));
   --font-input-placeholder: (var(--font-manrope));
 
+  /* Цвета и шрифты */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
@@ -29,6 +36,8 @@
   --radius-select: 16px;
 
   --tracking-logo: 0.02em;
+
+  --container-2xl: 1920px;
 }
 
 :root {
@@ -55,13 +64,25 @@
 }
 
 @layer base {
-  * {
-    /* Теперь border-border и outline-ring будут работать */
-    @apply border-border outline-ring/50;
+  html, body {
+    overflow-x: hidden; /* Гарантированно убираем горизонтальную прокрутку */
+    width: 100%;
   }
-
   body {
-    /* Ошибка bg-background исчезнет здесь */
-    @apply bg-background text-foreground font-body;
+    @apply bg-background text-foreground font-body min-h-screen flex flex-col p-0;
+  }
+}
+
+@utility container {
+  margin-inline: auto;
+  width: 100%;
+  padding-inline: 2rem; /* Базовый отступ 24px для мобилок */
+  max-width: 1920px;
+  
+  @variant pc-sm {
+    padding-inline: 4rem; /* 64px для 1280px */
+  }
+  @variant pc-lg {
+    padding-inline: 5rem; /* 80px для 1920px */
   }
 }

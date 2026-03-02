@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Unbounded, Manrope } from "next/font/google";
+import { Unbounded, Manrope, Open_Sans } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { AnalysisModal } from "@/components/custom/AnalysisModal";
 
 const unbounded = Unbounded({
   subsets: ["cyrillic", "latin"],
@@ -13,6 +14,11 @@ const manrope = Manrope({
   subsets: ["cyrillic", "latin"],
   variable: "--font-manrope",
 });
+
+const openSans = Open_Sans({
+  subsets: ["cyrillic", "latin"],
+  variable: "--font-open-sans", // CSS-переменная для Tailwind
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,14 +31,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru" className={`${unbounded.variable} ${manrope.variable}`}>
-      
+    <html lang="ru" className={`${unbounded.variable} ${manrope.variable} ${openSans.variable}`}>
       <body className="flex flex-col min-h-screen">
-        <Header/>
-        <main className="container mx-auto w-full grow">
+        <Header />
+        {/* Центрируем основной контент так же, как Header и Footer */}
+        <main className="container grow pb-14 pt-4">
           {children}
         </main>
         <Footer />
+        <AnalysisModal />
       </body>
     </html>
   );
