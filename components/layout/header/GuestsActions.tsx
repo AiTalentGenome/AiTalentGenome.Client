@@ -1,0 +1,33 @@
+"use client"
+
+import { Button } from '@/components/controls/Button'
+import { Bell, Globe } from 'lucide-react'
+import { NavLinks } from './NavLinks';
+import { useModalStore } from '@/store/useModalStore';
+import { useAuthModalStore } from '@/store/useAuthModalStore';
+
+const links = [
+    { name: "Контакты", href: "/contacts" },
+];
+
+export default function GuestsActions() {
+    const openAuth = useAuthModalStore((state) => state.openAuth);
+    
+    return (
+        <div className="flex items-center gap-4 lg:gap-11">
+            <div>
+                <NavLinks links={links} />
+            </div>
+
+            <div className="hidden sm:flex items-center gap-4">
+                <Button variant="default" onClick={() => openAuth('auth-hh')}>Войти</Button>
+                <Button variant="secondary" onClick={() => openAuth('auth-email')}>Регистрация</Button>
+            </div>
+
+            <div className="flex items-center gap-2">
+                <Globe className="w-5 h-5 text-[#1a1a1a]" strokeWidth={1.5} />
+                <span className="font-semibold text-[16px] leading-6 font-body">RU</span>
+            </div>
+        </div>
+    )
+}

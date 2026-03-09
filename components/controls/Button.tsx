@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
   // Базовые стили: убираем фикс. ширину, ставим flex и gap
-  "inline-flex items-center justify-center gap-[8px] whitespace-nowrap text-[16px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 font-primary-button active:scale-[0.98]",
+  "inline-flex items-center justify-center gap-[8px] whitespace-nowrap text-[16px] font-[600] transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 font-primary-button active:scale-[0.98]",
   {
     variants: {
       variant: {

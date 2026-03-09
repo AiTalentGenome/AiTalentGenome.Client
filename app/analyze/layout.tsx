@@ -10,7 +10,7 @@ export default function AnalyzeLayout({ children }: { children: React.ReactNode 
     const config = ANALYZE_FLOW.steps.find(s => s.path === pathname) || ANALYZE_FLOW.steps[0];
 
     return (
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-10 container mx-auto pb-14 pt-4">
             <AppStepper />
 
             <div className="space-y-8">

@@ -1,22 +1,22 @@
-import { AppCombobox } from "@/components/controls/AppCombobox";
-import { AppStepper } from "@/components/analyze/AppStepper";
-import { Button } from "@/components/controls/Button";
-import { FormField } from "@/components/controls/FormField";
-import { Logo } from "@/components/custom/Logo";
-import { Upload } from "lucide-react";
+"use client"
 
-const vacancies = [
-  { value: "1", label: "Frontend Developer" },
-  { value: "2", label: "Backend Developer" },
-  { value: "3", label: "QA Engineer" },
-  { value: "4", label: "Product Manager" },
-  { value: "5", label: "DevOps Engineer" },
-];
+import * as React from "react"
+import { useAuthStore } from "@/store/useAuthStore"
+import { HeroSection } from "@/components/home/HeroSection";
 
-export default function Home() {
+export default function HomePage() {
+  const isAuthorized = useAuthStore((state) => state.isAuthorized);
+
+  if (!isAuthorized) {
+    return (
+      /* h-full и flex-1 заставляют страницу занять всё пространство main */
+      <HeroSection/>
+    );
+  }
+
   return (
-    <div>
-      Main Page
+    <div className="container flex-1 flex items-center justify-center">
+      <h1 className="text-2xl font-heading">Добро пожаловать в личный кабинет</h1>
     </div>
   );
 }

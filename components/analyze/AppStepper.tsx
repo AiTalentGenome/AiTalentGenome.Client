@@ -23,9 +23,9 @@ export const AppStepper = () => {
   const currentStep = currentStepData.id;
 
   return (
-    <div className="w-full h-35 bg-[#F2F4F7]/50 rounded-[40px] flex items-center justify-center px-8 lg:px-20">
+    <div className="h-34 bg-[#F2F4F7]/50 rounded-[40px] flex items-center justify-center px-8 lg:px-20">
       {/* Увеличили макс. ширину, чтобы gap-12 и широкие слова влезли в ряд */}
-      <div className="flex items-center justify-between max-w-325 w-full relative">
+      <div className="flex items-center justify-between max-w-325 relative">
         {ANALYZE_FLOW.steps.map((step, index) => {
           const isStepActive = currentStep >= step.id;
           const isConnectionActive = currentStep > step.id;

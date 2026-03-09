@@ -29,16 +29,17 @@ export const AnalysisModal = ({
     onConfirm,
     onCancel
 }: AnalysisModalProps) => {
-    const { isOpen, closeModal, openModal } = useModalStore();
+    const { isOpen, closeModal, openModal, view } = useModalStore();
 
-    const handleConfirm = () => {
-        if (onConfirm) {
-            onConfirm();
-        } else {
-            // Поведение по умолчанию, если onConfirm не передан
-            closeModal();
-        }
+    const handleSave = () => {
+        // Здесь можно добавить реальный запрос к API
+        console.log("Черновик сохраняется...");
+
+        // Переключаем модалку на экран успеха
+        openModal('save-success');
     };
+
+    const isSuccess = view === 'save-success';
 
     const handleCancel = () => {
         if (onCancel) {
@@ -50,24 +51,40 @@ export const AnalysisModal = ({
 
     return (
         <Dialog open={isOpen} onOpenChange={closeModal}>
-            <DialogContent className="max-w-122.5 max-h-69 rounded-4xl py-22 gap-8 border-none bg-white">
+            <DialogContent className="max-w-122.5 rounded-4xl gap-8 border-none bg-white pt-21 pb-8 px-4">
                 <div className="flex flex-col items-center text-center gap-9.5 animate-in fade-in duration-300">
                     <DialogHeader className="space-y-3 text-center sm:text-center">
                         <DialogTitle className="font-open-sans font-semibold text-[22px] leading-6 text-footer-text">
-                            {title}
+                            {isSuccess ? "Черновик сохранен" : "Вы покидаете страницу анализа"}
                         </DialogTitle>
                         <DialogDescription className="font-body font-semibold text-[16px] text-footer-text leading-6">
-                            {description}
+                            {isSuccess
+                                ? "Вы сможете найти сохраненный черновик в личном кабинете и продолжить анализ позднее"
+                                : "Сохраните черновик, чтобы продолжить позднее"}
                         </DialogDescription>
                     </DialogHeader>
 
                     <DialogFooter className="flex flex-row justify-center w-full gap-5">
-                        <Button onClick={handleConfirm} className="max-h-53 h-14">
-                            {confirmText}
-                        </Button>
-                        <Button variant="secondary" onClick={handleCancel} className="max-h-53 h-14">
-                            {cancelText}
-                        </Button>
+                        {isSuccess ? (
+                            <>
+                                <Button onClick={closeModal} className="max-h-53 h-14">
+                                    Продолжить
+                                </Button>
+                                <Button variant="secondary" onClick={closeModal} className="max-h-53 h-14">
+                                    Выйти
+                                </Button>
+                            </>
+                        ) : (
+                            // Кнопки для экрана ПРЕДУПРЕЖДЕНИЯ
+                            <>
+                                <Button onClick={handleSave} className="max-h-53 h-14">
+                                    Сохранить черновик
+                                </Button>
+                                <Button variant="secondary" onClick={closeModal} className="max-h-53 h-14">
+                                    Выйти
+                                </Button>
+                            </>
+                        )}
                     </DialogFooter>
                 </div>
             </DialogContent>
