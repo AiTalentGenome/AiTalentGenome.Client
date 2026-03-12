@@ -21,6 +21,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
+  --color-accent: var(--accent);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
@@ -32,6 +33,8 @@
   --color-select-bg: #F2F4F7;
   --color-footer-bg: #F5F5F5;
   --color-footer-text: #323333;
+  --color-focus-input: var(--focus-input);
+  --color-inactive-input: #919999;
 
   --radius-select: 16px;
 
@@ -46,6 +49,8 @@
   --primary-foreground: #ffffff;
   --secondary: #919999;
   --secondary-foreground: #ffffff;
+  --accent: #B24949;
+  --focus-input: #323333;
 
   /* Системные цвета для shadcn */
   --background: #ffffff;

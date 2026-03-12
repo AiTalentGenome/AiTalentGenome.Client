@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { ChevronLeft } from "lucide-react"
+import { ArrowLeft, ChevronLeft } from "lucide-react"
 import { DialogTitle } from "@/components/ui/dialog" // Импортируем именно этот компонент
 import { Logo } from "../Logo";
 
@@ -13,13 +13,13 @@ export const AuthHeader = ({ showBack, onBack }: AuthHeaderProps) => (
         {showBack && (
             <button
                 onClick={onBack}
-                className="absolute left-0 top-1 text-[#919999] hover:text-primary transition-colors"
+                className="absolute -left-5 top-2 text-footer-text hover:text-primary transition-colors"
             >
-                <ChevronLeft className="w-6 h-6" />
+                <ArrowLeft className="w-6 h-6 font-normal" />
             </button>
         )}
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 mb-3">
             <Logo fontSize={25.94} imageSize={{
                 width: 20.59,
                 height: 43.77

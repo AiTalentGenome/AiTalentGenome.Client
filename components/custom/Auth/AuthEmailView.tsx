@@ -1,47 +1,56 @@
+"use client"
+
 import * as React from "react"
 import { Mail } from "lucide-react"
 import { Button } from "@/components/controls/Button"
-import { cn } from "@/lib/utils"
+import { AppInput } from "@/components/controls/AppInput"
+import { useAuthModalStore } from "@/store/useAuthModalStore"
 
 export const AuthEmailView = () => {
-  const [loginType, setLoginType] = React.useState<'email' | 'phone'>('email');
+  const { openAuth, setEmail: saveEmailToStore } = useAuthModalStore();
+  const [localEmail, setLocalEmail] = React.useState("");
+
+  const handleNext = () => {
+    saveEmailToStore(localEmail); // Сохраняем в глобальный стор
+    openAuth('auth-login-password'); // Переходим к паролю
+  };
 
   return (
     <div className="flex flex-col gap-6 w-full animate-in slide-in-from-right-4 duration-300">
+      {/* ТАБЫ: теперь переключают Views в сторе */}
       <div className="flex bg-[#F2F4F7] rounded-[16px] p-1">
-        {(['email', 'phone'] as const).map((type) => (
-          <button
-            key={type}
-            onClick={() => setLoginType(type)}
-            className={cn(
-              "flex-1 py-3 rounded-[12px] font-body font-semibold text-[14px] transition-all capitalize",
-              loginType === type ? "bg-white text-[#1a1a1a] shadow-sm" : "text-[#919999]"
-            )}
-          >
-            {type === 'email' ? 'E-mail' : 'Телефон'}
-          </button>
-        ))}
+        <button
+          className="flex-1 py-3 rounded-[14px] font-open-sans leading-6 font-semibold text-[18px] bg-white text-[#1a1a1a] shadow-sm"
+        >
+          E-mail
+        </button>
+        <button
+          onClick={() => openAuth('auth-phone')} // Переход на новое "окно"
+          className="flex-1 py-3 rounded-[14px] font-open-sans leading-6 font-semibold text-[18px] text-[#CCCCCC] transition-all"
+        >
+          Телефон
+        </button>
       </div>
 
-      <div className="relative">
-        <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#BCC8CC]" />
-        <input 
-          type="email" 
-          placeholder="E-mail"
-          className="w-full h-14 bg-white border-2 border-[#F2F4F7] rounded-[20px] pl-12 pr-4 font-body outline-none focus:border-primary transition-colors"
-        />
-      </div>
+      <AppInput
+        type="email"
+        placeholder="E-mail"
+        icon={Mail}
+        value={localEmail}
+        onChange={(e) => setLocalEmail(e.target.value)}
+      />
 
-      <Button disabled className="w-full h-14 rounded-[20px] bg-[#F2F4F7] text-[#BCC8CC]">Далее</Button>
+      <Button variant={"default"} disabled={localEmail.length === 0} onClick={handleNext}>Далее</Button>
 
-      <div className="space-y-3">
+      <div className="space-y-5 mb-1">
         <Button variant="secondary" className="w-full h-14 rounded-[20px] bg-secondary text-white gap-2">Войти с Google</Button>
         <Button variant="secondary" className="w-full h-14 rounded-[20px] bg-secondary text-white gap-2">Войти с Yandex</Button>
       </div>
 
-      <p className="font-body text-[13px] text-center text-[#1a1a1a]">
+      <p className="font-open-sans text-[14px] text-center font-normal text-footer-text">
         Нет учетной записи? <button className="font-bold hover:underline">Зарегистрируйтесь</button>
       </p>
+
     </div>
   )
 }
