@@ -10,7 +10,11 @@ interface AuthHeaderProps {
 }
 
 export const AuthHeader = ({ showBack, onBack }: AuthHeaderProps) => {
-    const { authMode } = useAuthModalStore();
+    const { authMode, authView } = useAuthModalStore();
+
+    const isVerificationView = 
+        authView === "auth-verify-phone" ||
+        authView === "auth-confirm-email";
 
     return (
         <div className="flex flex-col items-center gap-6 w-full">
@@ -30,10 +34,11 @@ export const AuthHeader = ({ showBack, onBack }: AuthHeaderProps) => {
                 }} />
             </div>
 
-
+            {!isVerificationView && 
             <h2 className="font-open-sans font-semibold text-[22px] text-footer-text mb-1.5">
                 {authMode === 'login' ? 'Вход в личный кабинет' : 'Регистрация'}
-            </h2>
+            </h2>}
+
         </div>
     )
 }

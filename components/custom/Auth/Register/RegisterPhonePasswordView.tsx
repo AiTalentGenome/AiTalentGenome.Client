@@ -1,26 +1,30 @@
 "use client"
 
 import * as React from "react"
-import { Mail, Lock } from "lucide-react"
+import { Mail, Lock, Phone } from "lucide-react"
 import { Button } from "@/components/controls/Button"
 import { AppInput } from "@/components/controls/AppInput"
 import { useAuthModalStore } from "@/store/useAuthModalStore"
 import { PasswordRequirements } from "@/components/controls/PasswordRequirements"
+import { PatternFormat } from "react-number-format"
 
-export const RegisterLoginPasswordView = () => {
-  const { email } = useAuthModalStore();
+export const RegisterPhonePasswordView = () => {
+  const { email, authMode, openAuth } = useAuthModalStore();
   const [password, setPassword] = React.useState("");
   const [errorText, setErrorText] = React.useState();
+  const { phoneNumber } = useAuthModalStore();
 
   const hasError = !!errorText && password.length > 0;
-
-  const { authView, openAuth } = useAuthModalStore()
-
+  
   const handleNext = () => {
-    openAuth('auth-confirm-email')
-  }
+    // В реальном проекте здесь будет запрос к API для отправки SMS
+    // Но сейчас мы просто переключаем экран
+    if (allRequirementsMet && !hasError) {
+      openAuth('auth-verify-phone');
+    }
+  };
 
-  const allRequirementsMet =
+  const allRequirementsMet = 
     password.length >= 8 &&
     /[a-z]/.test(password) && /[A-Z]/.test(password) &&
     /\d/.test(password) &&
@@ -30,12 +34,13 @@ export const RegisterLoginPasswordView = () => {
     <div className="flex flex-col gap-5 w-full animate-in slide-in-from-right-4 duration-300">
       <div className="space-y-5">
         {/* Поле Email (уже заполнено и можно сделать его disabled или оставить так) */}
-        <AppInput
-          type="email"
-          placeholder="E-mail"
-          icon={Mail}
-          value={email}
-          readOnly // Пользователь видит, что почта та же
+        <PatternFormat
+          format="+7 (###) ###-##-##"
+          value={phoneNumber}
+          displayType="input"
+          customInput={AppInput}
+          readOnly
+          icon={Phone}
           className="bg-[#F2F4F7]/50"
           isError={hasError}
         />
@@ -53,7 +58,7 @@ export const RegisterLoginPasswordView = () => {
         />
       </div>
 
-      {hasError &&
+      {hasError && 
         <p className="font-open-sans text-[14px] leading-6 font-normal text-[#E0057E]">
           {errorText}
         </p>
@@ -61,7 +66,7 @@ export const RegisterLoginPasswordView = () => {
 
       <PasswordRequirements password={password} />
 
-      <Button variant={"default"} disabled={hasError} onClick={handleNext}>
+      <Button variant={"default"} disabled={!allRequirementsMet || hasError} onClick={handleNext}>
         Далее
       </Button>
     </div>

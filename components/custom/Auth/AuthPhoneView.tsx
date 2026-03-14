@@ -4,12 +4,12 @@ import * as React from "react"
 import { Phone } from "lucide-react"
 import { Button } from "@/components/controls/Button"
 import { AppInput } from "@/components/controls/AppInput"
-import { useAuthModalStore } from "@/store/useAuthModalStore"
+import { AuthView, useAuthModalStore } from "@/store/useAuthModalStore"
 import { PatternFormat } from "react-number-format"
 
 export const LoginPhoneView = () => {
     // Достаем нужные функции из стора
-    const { openAuth, setPhoneNumber } = useAuthModalStore();
+    const { openAuth, setPhoneNumber, authMode } = useAuthModalStore();
     
     const [phoneData, setPhoneData] = React.useState({
         formattedValue: "",
@@ -21,8 +21,9 @@ export const LoginPhoneView = () => {
 
     const handleNext = () => {
         if (isComplete) {
-            setPhoneNumber(phoneData.value); // Сохраняем в глобальный стор
-            openAuth('auth-phone-password'); // Переходим к паролю
+            setPhoneNumber(phoneData.value);
+            const nextView: AuthView = authMode === "login" ? "auth-login-password" : "register-phone-password"
+            openAuth(nextView); 
         }
     };
 

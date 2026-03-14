@@ -9,9 +9,15 @@ import { LoginPhoneView } from "./AuthPhoneView"
 import { LoginPasswordView } from "./Login/LoginPasswordView"
 import { LoginPhonePasswordView } from "./Login/LoginPhonePasswordView"
 import React from "react"
+import { RegisterLoginPasswordView } from "./Register/RegisterLoginPasswordView"
+import { RegisterPhonePasswordView } from "./Register/RegisterPhonePasswordView"
+import { AuthVerifyPhoneView } from "./Register/AuthVerifyPhoneView"
+import { useRouter } from "next/navigation"
+import AuthConfirmEmail from "./Register/AuthConfirmEmail"
 
 export const AuthModal = ({ initialMode }: { initialMode?: 'login' | 'register' }) => {
-    const { isAuthOpen, authView, closeAuth, openAuth, setAuthMode } = useAuthModalStore();
+    const router = useRouter()
+    const { isAuthOpen, authView, closeAuth, openAuth, setAuthMode, authMode } = useAuthModalStore();
 
     React.useEffect(() => {
         // 1. Устанавливаем режим (Вход или Регистрация)
@@ -36,8 +42,18 @@ export const AuthModal = ({ initialMode }: { initialMode?: 'login' | 'register' 
         if (authView === 'auth-login-password') {
             openAuth('auth-email');
         } else if (authView === 'auth-phone-password') {
-            openAuth('auth-phone'); // Возвращаемся к вводу телефона
-        } else {
+            openAuth('auth-phone');
+        } 
+        else if (authView === "register-phone-password") {
+            openAuth('auth-phone')
+        }
+        else if (authView === "auth-verify-phone") {
+            openAuth('register-phone-password')
+        }
+        else if ((authView === "auth-email" || authView === "auth-phone") && authMode === "register") {
+            router.push("/")
+        }
+        else {
             openAuth('auth-hh');
         }
     };
@@ -48,6 +64,7 @@ export const AuthModal = ({ initialMode }: { initialMode?: 'login' | 'register' 
         <div>
             <div className="w-122.5 rounded-[40px] py-11 px-12.25 border-none bg-white shadow-2xl [&>button]:hidden">
                 <div className="flex flex-col items-center gap-5">
+
                     <AuthHeader
                         showBack={canGoBack}
                         onBack={handleBack}
@@ -61,6 +78,10 @@ export const AuthModal = ({ initialMode }: { initialMode?: 'login' | 'register' 
                     {authView === 'auth-login-password' && <LoginPasswordView />}
                     {authView === 'auth-phone' && <LoginPhoneView />}
                     {authView === 'auth-phone-password' && <LoginPhonePasswordView />}
+                    {authView === 'register-login-password' && <RegisterLoginPasswordView />}
+                    {authView === 'register-phone-password' && <RegisterPhonePasswordView />}
+                    {authView === 'auth-verify-phone' && <AuthVerifyPhoneView />}
+                    {authView === 'auth-confirm-email' && <AuthConfirmEmail />}
                 </div>
             </div>
         </div>

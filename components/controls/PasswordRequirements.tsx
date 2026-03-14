@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Circle, CheckCircle2 } from "lucide-react"
+import { Circle, CheckCircle2, CircleCheckBig } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 interface RequirementProps {
@@ -12,13 +12,13 @@ interface RequirementProps {
 const RequirementItem = ({ label, isMet }: RequirementProps) => (
   <div className="flex items-center gap-2 transition-colors duration-200">
     {isMet ? (
-      <CheckCircle2 className="w-5 h-5 text-primary" /> // Используем твой бирюзовый
+      <CircleCheckBig className="w-4 h-4 text-primary" />
     ) : (
-      <Circle className="w-5 h-5 text-[#BCC8CC]" />
+      <Circle className="w-4 h-4 text-inactive-input" />
     )}
     <span className={cn(
-      "font-open-sans text-[14px] leading-[20px] font-normal",
-      isMet ? "text-primary" : "text-[#919999]"
+      "font-open-sans text-[14px] leading-5 font-normal",
+      isMet ? "text-primary" : "text-inactive-input"
     )}>
       {label}
     </span>

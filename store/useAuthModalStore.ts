@@ -1,12 +1,16 @@
 import { create } from 'zustand'
 
-type AuthView = 
+export type AuthView = 
   | 'auth-hh' 
   | 'auth-email' 
   | 'auth-phone' 
   | 'auth-login-password' 
   | 'auth-phone-password' 
   | 'auth-success' 
+  | 'register-login-password'
+  | 'register-phone-password'
+  | 'auth-verify-phone'
+  | 'auth-confirm-email'
   | null;
 
 // Добавляем типы режимов

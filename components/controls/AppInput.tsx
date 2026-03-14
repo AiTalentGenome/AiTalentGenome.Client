@@ -17,7 +17,7 @@ export const AppInput = React.forwardRef<HTMLInputElement, AppInputProps>(
 
         return (
             <div>
-                <p>{header}</p>
+                <p className="text-footer-text font-open-sans text-[14px] leading-5 font-semibold mb-2">{header}</p>
                 <div className={cn("relative group w-full", containerClassName)}>
                     {Icon && (
                         <Icon

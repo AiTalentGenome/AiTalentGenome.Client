@@ -4,7 +4,7 @@ import * as React from "react"
 import { Mail } from "lucide-react"
 import { Button } from "@/components/controls/Button"
 import { AppInput } from "@/components/controls/AppInput"
-import { useAuthModalStore } from "@/store/useAuthModalStore"
+import { AuthView, useAuthModalStore } from "@/store/useAuthModalStore"
 
 export const AuthEmailView = () => {
   const { openAuth, setEmail: saveEmailToStore, authMode } = useAuthModalStore();
@@ -12,7 +12,8 @@ export const AuthEmailView = () => {
 
   const handleNext = () => {
     saveEmailToStore(localEmail); // Сохраняем в глобальный стор
-    openAuth('auth-login-password'); // Переходим к паролю
+    const nextView: AuthView = authMode === "login" ? "auth-login-password" : "register-login-password"
+    openAuth(nextView); // Переходим к паролю
   };
 
   return (
