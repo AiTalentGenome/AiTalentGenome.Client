@@ -8,9 +8,14 @@ import { AuthEmailView } from "./AuthEmailView"
 import { AuthPhoneView } from "./AuthPhoneView"
 import { AuthLoginPasswordView } from "./AuthLoginPasswordView"
 import { AuthPhonePasswordView } from "./AuthPhonePasswordView"
+import React from "react"
 
 export const AuthModal = () => {
     const { isAuthOpen, authView, closeAuth, openAuth } = useAuthModalStore();
+
+    React.useEffect(() => {
+        if (!authView) openAuth('auth-hh');
+    }, [authView, openAuth]);
 
     if (!authView) return null;
     const handleBack = () => {
@@ -26,8 +31,8 @@ export const AuthModal = () => {
     const canGoBack = authView !== 'auth-hh';
 
     return (
-        <Dialog open={isAuthOpen} onOpenChange={closeAuth}>
-            <DialogContent className="max-w-122.5 rounded-[40px] py-11 px-12.25 border-none bg-white shadow-2xl [&>button]:hidden">
+        <div>
+            <div className="max-w-122.5 rounded-[40px] py-11 px-12.25 border-none bg-white shadow-2xl [&>button]:hidden">
                 <div className="flex flex-col items-center gap-5">
                     <AuthHeader
                         showBack={canGoBack}
@@ -43,7 +48,7 @@ export const AuthModal = () => {
                     {authView === 'auth-phone' && <AuthPhoneView />}
                     {authView === 'auth-phone-password' && <AuthPhonePasswordView />}
                 </div>
-            </DialogContent>
-        </Dialog>
+            </div>
+        </div>
     )
 }
