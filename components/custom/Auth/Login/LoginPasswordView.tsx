@@ -6,13 +6,16 @@ import { Button } from "@/components/controls/Button"
 import { AppInput } from "@/components/controls/AppInput"
 import { useAuthModalStore } from "@/store/useAuthModalStore"
 
-export const AuthLoginPasswordView = () => {
-  const { email } = useAuthModalStore(); // Берем сохраненную почту
+export const LoginPasswordView = () => {
+  const { email } = useAuthModalStore();
   const [password, setPassword] = React.useState("");
+  const [errorText, setErrorText] = React.useState("Неверный E-mail или пароль. Повторите попытку.");
+
+  const hasError = !!errorText && password.length > 0;
 
   return (
-    <div className="flex flex-col gap-6 w-full animate-in slide-in-from-right-4 duration-300">
-      <div className="space-y-4">
+    <div className="flex flex-col gap-5 w-full animate-in slide-in-from-right-4 duration-300">
+      <div className="space-y-5">
         {/* Поле Email (уже заполнено и можно сделать его disabled или оставить так) */}
         <AppInput
           type="email"
@@ -21,6 +24,7 @@ export const AuthLoginPasswordView = () => {
           value={email}
           readOnly // Пользователь видит, что почта та же
           className="bg-[#F2F4F7]/50" 
+          isError={hasError}
         />
 
         {/* Поле Пароля */}
@@ -31,10 +35,17 @@ export const AuthLoginPasswordView = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className="[text-security:asterisk] [-webkit-text-security:asterisk]"
+          isError={hasError}
         />
       </div>
 
-      <Button variant={"default"} disabled={password.length < 4}>
+      {hasError && 
+        <p className="font-open-sans text-[14px] leading-6 font-normal text-[#E0057E]">
+          {errorText}
+        </p>
+      }
+
+      <Button variant={"default"} disabled={hasError}>
         Далее
       </Button>
     </div>

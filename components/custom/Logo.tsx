@@ -22,7 +22,7 @@ export const Logo = ({
   fontSize = 17.58
 }: LogoProps) => {
   return (
-    <div className={cn("flex items-center gap-6 select-none", className)}>
+    <div className={cn("flex items-center gap-5 select-none", className)}>
       <Image
         src="/logo.svg"
         alt="AI Talent Genome Logo"

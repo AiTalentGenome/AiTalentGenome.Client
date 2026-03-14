@@ -4,7 +4,7 @@ import { Button } from "@/components/controls/Button"
 import { cn } from "@/lib/utils"
 import { Checkbox } from "@/components/ui/checkbox"
 
-export const AuthHHView = ({ onOtherMethod }: { onOtherMethod: () => void }) => {
+export const LoginHHView = ({ onOtherMethod }: { onOtherMethod: () => void }) => {
   const [isAgreed, setIsAgreed] = React.useState(false);
 
   return (
@@ -20,17 +20,6 @@ export const AuthHHView = ({ onOtherMethod }: { onOtherMethod: () => void }) => 
       </div>
 
       <div className="flex items-center justify-center w-fit mx-auto gap-5 cursor-pointer group max-w-90">
-        {/* <input type="checkbox" className="hidden" checked={isAgreed} onChange={() => setIsAgreed(!isAgreed)} />
-        <div className={cn(
-          "w-5 h-5 rounded border-2 flex items-center justify-center transition-colors mb-5 shrink-0",
-          isAgreed ? "bg-primary border-primary" : "border-[#BCC8CC] group-hover:border-primary"
-        )}>
-          {isAgreed && <div className="w-2.5 h-2.5 bg-white rounded-sm" />}
-        </div>
-        <span className="font-body font-normal text-[16px] leading-6 tracking-normal text-[#797F7F]">
-          Я принимаю условия пользовательского соглашения и даю согласие на обработку персональных данных
-        </span> */}
-
         <div className="flex items-center justify-center w-fit mx-auto gap-5 cursor-pointer group max-w-90">
           <Checkbox
             id="terms-checkbox-desc"

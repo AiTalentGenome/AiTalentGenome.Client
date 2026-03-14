@@ -5,6 +5,7 @@ import { Bell, Globe } from 'lucide-react'
 import { NavLinks } from './NavLinks';
 import { useModalStore } from '@/store/useModalStore';
 import { useAuthModalStore } from '@/store/useAuthModalStore';
+import { useRouter } from 'next/navigation';
 
 const links = [
     { name: "Контакты", href: "/contacts" },
@@ -12,7 +13,8 @@ const links = [
 
 export default function GuestsActions() {
     const openAuth = useAuthModalStore((state) => state.openAuth);
-    
+    const router = useRouter()
+
     return (
         <div className="flex items-center gap-4 lg:gap-11">
             <div>
@@ -20,8 +22,8 @@ export default function GuestsActions() {
             </div>
 
             <div className="hidden sm:flex items-center gap-4">
-                <Button variant="default" onClick={() => openAuth('auth-hh')}>Войти</Button>
-                <Button variant="secondary" onClick={() => openAuth('auth-email')}>Регистрация</Button>
+                <Button variant="default" onClick={() => router.push("/login")}>Войти</Button>
+                <Button variant="secondary" onClick={() => router.push("/register")}>Регистрация</Button>
             </div>
 
             <div className="flex items-center gap-2">

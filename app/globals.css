@@ -35,6 +35,7 @@
   --color-footer-text: #323333;
   --color-focus-input: var(--focus-input);
   --color-inactive-input: #919999;
+  --color-error: #E0057E;
 
   --radius-select: 16px;
 

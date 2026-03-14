@@ -16,7 +16,7 @@ const buttonVariants = cva(
         accent: "bg-accent text-white hover:opacity-90 disabled:bg-[#CC8F8F] disabled:text-white"
       },
       size: {
-        figma: "h-[48px] min-w-[48px] px-7 rounded-[20px]",
+        figma: "h-[48px] px-7 rounded-[20px]",
         sm: "h-8 px-3 text-xs rounded-md",
         lg: "h-12 px-8 text-base rounded-xl",
         icon: "h-[48px] w-[48px] rounded-[var(--radius)]", // Квадратная для иконок

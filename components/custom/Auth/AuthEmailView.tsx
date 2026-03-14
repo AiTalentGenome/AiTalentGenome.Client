@@ -7,7 +7,7 @@ import { AppInput } from "@/components/controls/AppInput"
 import { useAuthModalStore } from "@/store/useAuthModalStore"
 
 export const AuthEmailView = () => {
-  const { openAuth, setEmail: saveEmailToStore } = useAuthModalStore();
+  const { openAuth, setEmail: saveEmailToStore, authMode } = useAuthModalStore();
   const [localEmail, setLocalEmail] = React.useState("");
 
   const handleNext = () => {
@@ -16,9 +16,9 @@ export const AuthEmailView = () => {
   };
 
   return (
-    <div className="flex flex-col gap-6 w-full animate-in slide-in-from-right-4 duration-300">
+    <div className="flex flex-col gap-6 duration-300 w-full">
       {/* ТАБЫ: теперь переключают Views в сторе */}
-      <div className="flex bg-[#F2F4F7] rounded-[16px] p-1">
+      <div className="flex bg-[#F2F4F7] rounded-[16px]">
         <button
           className="flex-1 py-3 rounded-[14px] font-open-sans leading-6 font-semibold text-[18px] bg-white text-[#1a1a1a] shadow-sm"
         >
@@ -48,7 +48,15 @@ export const AuthEmailView = () => {
       </div>
 
       <p className="font-open-sans text-[14px] text-center font-normal text-footer-text">
-        Нет учетной записи? <button className="font-bold hover:underline">Зарегистрируйтесь</button>
+        {authMode === "login" ?
+          <>
+            Нет учетной записи? <button className="font-bold hover:underline">Зарегистрируйтесь</button>
+          </>
+          :
+          <>
+            Уже есть учетная запись? <button className="font-bold hover:underline">Войти</button>
+          </>
+        }
       </p>
 
     </div>

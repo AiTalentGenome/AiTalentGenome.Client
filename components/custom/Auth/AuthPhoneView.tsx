@@ -7,7 +7,7 @@ import { AppInput } from "@/components/controls/AppInput"
 import { useAuthModalStore } from "@/store/useAuthModalStore"
 import { PatternFormat } from "react-number-format"
 
-export const AuthPhoneView = () => {
+export const LoginPhoneView = () => {
     // Достаем нужные функции из стора
     const { openAuth, setPhoneNumber } = useAuthModalStore();
     

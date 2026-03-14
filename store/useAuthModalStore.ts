@@ -26,7 +26,7 @@ interface AuthModalState {
 }
 
 export const useAuthModalStore = create<AuthModalState>((set) => ({
-  isAuthOpen: true,
+  isAuthOpen: false,
   authView: null,
   authMode: 'login', // По умолчанию вход
   email: '',

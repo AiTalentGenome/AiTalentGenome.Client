@@ -12,27 +12,26 @@ interface AuthHeaderProps {
 export const AuthHeader = ({ showBack, onBack }: AuthHeaderProps) => {
     const { authMode } = useAuthModalStore();
 
-
-
     return (
-        <div className="flex flex-col items-center gap-6 relative w-full">
-            {showBack && (
-                <button
-                    onClick={onBack}
-                    className="absolute -left-5 top-2 text-footer-text hover:text-primary transition-colors"
-                >
-                    <ArrowLeft className="w-6 h-6 font-normal" />
-                </button>
-            )}
+        <div className="flex flex-col items-center gap-6 w-full">
+            <div className="flex items-center gap-9 justify-center w-full -ml-13 mb-2">
+                {showBack && (
+                    <button
+                        onClick={onBack}
+                    >
+                        <ArrowLeft className="w-6 h-6" />
+                    </button>
+                )}
 
-            <div className="flex items-center gap-2 mb-3">
+
                 <Logo fontSize={25.94} imageSize={{
                     width: 20.59,
                     height: 43.77
                 }} />
             </div>
 
-            <h2 className="font-open-sans font-semibold text-[22px] text-footer-text">
+
+            <h2 className="font-open-sans font-semibold text-[22px] text-footer-text mb-1.5">
                 {authMode === 'login' ? 'Вход в личный кабинет' : 'Регистрация'}
             </h2>
         </div>

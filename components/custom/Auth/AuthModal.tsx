@@ -3,19 +3,33 @@
 import { Dialog, DialogContent } from "@/components/ui/dialog"
 import { useAuthModalStore } from "@/store/useAuthModalStore"
 import { AuthHeader } from "./AuthHeader"
-import { AuthHHView } from "./AuthHHView"
+import { LoginHHView } from "./Login/LoginHHView"
 import { AuthEmailView } from "./AuthEmailView"
-import { AuthPhoneView } from "./AuthPhoneView"
-import { AuthLoginPasswordView } from "./AuthLoginPasswordView"
-import { AuthPhonePasswordView } from "./AuthPhonePasswordView"
+import { LoginPhoneView } from "./AuthPhoneView"
+import { LoginPasswordView } from "./Login/LoginPasswordView"
+import { LoginPhonePasswordView } from "./Login/LoginPhonePasswordView"
 import React from "react"
 
-export const AuthModal = () => {
-    const { isAuthOpen, authView, closeAuth, openAuth } = useAuthModalStore();
+export const AuthModal = ({ initialMode }: { initialMode?: 'login' | 'register' }) => {
+    const { isAuthOpen, authView, closeAuth, openAuth, setAuthMode } = useAuthModalStore();
 
     React.useEffect(() => {
-        if (!authView) openAuth('auth-hh');
-    }, [authView, openAuth]);
+        // 1. Устанавливаем режим (Вход или Регистрация)
+        if (initialMode) {
+            setAuthMode(initialMode);
+        }
+
+        // 2. Устанавливаем стартовый экран, если он еще не выбран
+        if (!authView) {
+            if (initialMode === 'register') {
+                // Для регистрации сразу открываем Email
+                openAuth('auth-email');
+            } else {
+                // Для входа оставляем HH как первый шаг
+                openAuth('auth-hh');
+            }
+        }
+    }, [authView, openAuth, initialMode, setAuthMode]);
 
     if (!authView) return null;
     const handleBack = () => {
@@ -32,7 +46,7 @@ export const AuthModal = () => {
 
     return (
         <div>
-            <div className="max-w-122.5 rounded-[40px] py-11 px-12.25 border-none bg-white shadow-2xl [&>button]:hidden">
+            <div className="w-122.5 rounded-[40px] py-11 px-12.25 border-none bg-white shadow-2xl [&>button]:hidden">
                 <div className="flex flex-col items-center gap-5">
                     <AuthHeader
                         showBack={canGoBack}
@@ -41,12 +55,12 @@ export const AuthModal = () => {
 
                     {/* Рендерим нужный вид */}
                     {authView === 'auth-hh' && (
-                        <AuthHHView onOtherMethod={() => openAuth('auth-email')} />
+                        <LoginHHView onOtherMethod={() => openAuth('auth-email')} />
                     )}
                     {authView === 'auth-email' && <AuthEmailView />}
-                    {authView === 'auth-login-password' && <AuthLoginPasswordView />}
-                    {authView === 'auth-phone' && <AuthPhoneView />}
-                    {authView === 'auth-phone-password' && <AuthPhonePasswordView />}
+                    {authView === 'auth-login-password' && <LoginPasswordView />}
+                    {authView === 'auth-phone' && <LoginPhoneView />}
+                    {authView === 'auth-phone-password' && <LoginPhonePasswordView />}
                 </div>
             </div>
         </div>
