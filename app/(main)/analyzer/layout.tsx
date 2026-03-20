@@ -5,7 +5,7 @@ import { AppStepper } from "@/components/analyze/features/AppStepper";
 import { ANALYZER_FLOW } from "@/lib/analyze-config";
 import { usePathname } from "next/navigation";
 
-export default function AnalyzeLayout({ children }: { children: React.ReactNode }) {
+export default function AnalyzerLayout({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();
 
     const config = [...ANALYZER_FLOW.steps]

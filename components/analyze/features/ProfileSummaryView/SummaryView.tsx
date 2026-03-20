@@ -1,6 +1,6 @@
 import React from 'react'
 import { SummaryCard } from './SummaryCard'
-import { resultData, swotData1, swotData2, swotData3, swotData4, swotData5 } from '@/lib/summary-card-data-config'
+import { resultData, swotData1, swotData2, swotData3, swotData4, swotData5 } from '@/lib/summary-data-config'
 
 
 export default function SummaryView() {

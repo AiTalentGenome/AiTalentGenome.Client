@@ -1,5 +1,5 @@
-import { ListIconType } from "@/lib/summary-card-data-config";
 import { CircleCheckBig, AlertCircle, Target, Flag } from "lucide-react";
+import { ListIconType } from "./SummaryCard";
 
 // Вспомогательный компонент для отрисовки иконки
 const StatusIcon = ({ type }: { type: ListIconType }) => {

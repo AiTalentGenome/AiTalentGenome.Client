@@ -10,7 +10,7 @@ import { PatternFormat } from "react-number-format"
 export const LoginPhoneView = () => {
     // Достаем нужные функции из стора
     const { openAuth, setPhoneNumber, authMode } = useAuthModalStore();
-    
+
     const [phoneData, setPhoneData] = React.useState({
         formattedValue: "",
         value: "" // Чистые цифры: 7071234567
@@ -22,8 +22,13 @@ export const LoginPhoneView = () => {
     const handleNext = () => {
         if (isComplete) {
             setPhoneNumber(phoneData.value);
-            const nextView: AuthView = authMode === "login" ? "auth-login-password" : "register-phone-password"
-            openAuth(nextView); 
+
+            // Исправляем путь для логина по телефону
+            const nextView: AuthView = authMode === "login"
+                ? "auth-phone-password" // Теперь ведет на ввод пароля для ТЕЛЕФОНА
+                : "register-phone-password";
+
+            openAuth(nextView);
         }
     };
 
@@ -56,14 +61,14 @@ export const LoginPhoneView = () => {
                 onValueChange={(values) => {
                     setPhoneData({
                         formattedValue: values.formattedValue,
-                        value: values.value 
+                        value: values.value
                     });
                 }}
             />
 
             {/* ТЕПЕРЬ КНОПКА СЛУШАЕТ ПРАВИЛЬНУЮ ПЕРЕМЕННУЮ */}
-            <Button 
-                variant={"default"} 
+            <Button
+                variant={"default"}
                 disabled={!isComplete} // Инвертируем: если не готово, то disabled
                 onClick={handleNext}
             >

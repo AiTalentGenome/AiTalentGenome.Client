@@ -1,10 +1,29 @@
 "use client"
 
-import { AlertCircle, Target, Flag, CircleCheckBig } from 'lucide-react'
-import { ListIconType, SummaryCardProps } from '@/lib/summary-card-data-config'
 import { ListItem } from './ListItem'
 
+export type ListIconType = 'check' | 'alert' | 'opportunity' | 'threat' | 'bullet' | 'none';
 
+export interface SummaryItem {
+    important?: string;
+    text: string;
+    iconType?: ListIconType;
+}
+
+export interface SummarySection {
+    title?: string;
+    items: (string | SummaryItem)[]; // Может быть просто строкой или объектом с иконкой
+}
+
+export interface SummaryCardProps {
+    mainTitle?: string;
+    sections: SummarySection[];
+    // Теперь может быть и строкой, и списком
+    conclusion: string | (string | SummaryItem)[]; 
+    summaryConculsionType?: "summary" | "psychological";
+    conculsionText?: string;
+    conclusionTitle?: string;
+}
 
 export const SummaryCard = ({ mainTitle, sections, conclusion, summaryConculsionType, conclusionTitle = "Вывод", conculsionText }: SummaryCardProps) => {
     return (
