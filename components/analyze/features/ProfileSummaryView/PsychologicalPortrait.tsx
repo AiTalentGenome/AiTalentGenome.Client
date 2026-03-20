@@ -1,3 +1,4 @@
+import { portraitData1, portraitData2, portraitData3, portraitData5, portraitResultData } from '@/lib/summary-data-config';
 import { SummaryCard, SummarySection } from './SummaryCard';
 
 
