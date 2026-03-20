@@ -43,7 +43,7 @@ export const AppCombobox = ({
             "flex items-center justify-between",
             "w-66 h-10 px-4 py-2 gap-2", // Точные размеры из ТЗ
             "rounded-[16px] bg-[#F2F4F7] border-none outline-none", // Radius 16
-            "font-body text-[16px] leading-6 text-[#000000] opacity-100", // Manrope 16/24
+            "font-manrope text-[16px] leading-6 text-[#000000] opacity-100", // Manrope 16/24
             "transition-all active:scale-[0.98]"
           )}
         >
@@ -53,13 +53,13 @@ export const AppCombobox = ({
       </PopoverTrigger>
 
       <PopoverContent 
-        className="w-66 p-2 rounded-[20px] bg-white border-none shadow-xl font-body"
+        className="w-66 p-2 rounded-[20px] bg-white border-none shadow-xl font-manrope"
         sideOffset={4}
       >
         {/* Поле поиска как на макете image_96df06.png */}
         <div className="relative flex items-center mb-2">
           <input
-            className="w-full h-10 pl-4 pr-10 bg-[#F2F4F7] rounded-xl outline-none text-sm font-body"
+            className="w-full h-10 pl-4 pr-10 bg-[#F2F4F7] rounded-xl outline-none text-sm font-manrope"
             placeholder={searchPlaceholder}
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
@@ -81,8 +81,8 @@ export const AppCombobox = ({
                 }}
                 className={cn(
                   "px-4 py-2 rounded-[10px] cursor-pointer text-[16px] font-normal transition-colors",
-                  "hover:bg-[#F2F4F7] active:bg-[#F2F4F7]/80 font-body",
-                  selectedLabel === option.label ? "bg-[#F2F4F7]" : "text-[#919999]"
+                  "hover:bg-[#F2F4F7] active:bg-[#F2F4F7]/80 font-manrope",
+                  selectedLabel === option.label ? "bg-[#F2F4F7]" : "text-inactive-input"
                 )}
               >
                 {option.label}

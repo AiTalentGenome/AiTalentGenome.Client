@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Unbounded, Manrope, Open_Sans } from "next/font/google";
+import { Unbounded, Manrope, Open_Sans, Inter } from "next/font/google";
 import "@/app/globals.css";
 import { Header } from "@/components/layout/header/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -10,6 +10,11 @@ const unbounded = Unbounded({
   subsets: ["cyrillic", "latin"],
   variable: "--font-unbounded", // Создаем CSS-переменную
 });
+
+const inter = Inter({
+  subsets: ["cyrillic", "latin"],
+  variable: "--font-inter",
+})
 
 const manrope = Manrope({
   subsets: ["cyrillic", "latin"],
@@ -28,7 +33,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ru" className={`${unbounded.variable} ${manrope.variable} ${openSans.variable}`}>
+    <html lang="ru" className={`${unbounded.variable} ${manrope.variable} ${openSans.variable} ${inter.variable}`}>
       <body className="flex flex-col min-h-screen">
         <Header />
         {/* ИСПРАВЛЕНИЕ: Убрали container, оставили grow и отступы */}

@@ -5,19 +5,22 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  /* Определяем твои ключевые разрешения */
+  /* Брейкпоинты */
   --breakpoint-pc-sm: 1280px;
   --breakpoint-pc-md: 1440px;
   --breakpoint-pc-lg: 1920px;
 
-  /* 1. Шрифты из вашего layout.tsx */
-  --font-heading: var(--font-unbounded);
-  --font-body: var(--font-manrope);
+  /* Шрифты — УБРАЛИ КРУГЛЫЕ СКОБКИ */
+  --font-unbounded: var(--font-unbounded);
+  --font-manrope: var(--font-manrope);
   --font-open-sans: var(--font-open-sans);
-  --font-primary-button: (var(--font-manrope));
-  --font-input-placeholder: (var(--font-manrope));
+  --font-inter: var(--font-inter);
+  
+  /* Привязываем конкретные элементы к шрифтам */
+  --font-primary-button: var(--font-manrope);
+  --font-input-placeholder: var(--font-manrope);
 
-  /* Цвета и шрифты */
+  /* Цвета */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
@@ -28,30 +31,37 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-text-muted: #606367;
-  --color-input-bg: #F2F4F7;
-  --color-select-bg: #F2F4F7;
-  --color-footer-bg: #F5F5F5;
-  --color-footer-text: #323333;
+  --color-text-muted: var(--text-muted);
+  --color-input-bg: var(--input-bg);
+  --color-select-bg: var(--select-bg);
+  --color-footer-bg: var(--footer-bg);
+  --color-footer-text: var(--footer-text);
   --color-focus-input: var(--focus-input);
-  --color-inactive-input: #919999;
-  --color-error: #E0057E;
+  --color-inactive-input: var(--inactive-input);
+  --color-error: var(--error);
+  --color-analyze-done: var(--analyze-done);
 
   --radius-select: 16px;
-
   --tracking-logo: 0.02em;
-
   --container-2xl: 1920px;
 }
 
 :root {
   /* Цвета вашего коммерческого проекта */
+  --text-muted: #606367;
   --primary: #2494B3;
   --primary-foreground: #ffffff;
   --secondary: #919999;
   --secondary-foreground: #ffffff;
   --accent: #B24949;
   --focus-input: #323333;
+  --analyze-done: #00A88C;
+  --error: #E0057E;
+  --inactive-input: #919999;
+  --footer-text: #323333;
+  --footer-bg: #F5F5F5;
+  --select-bg: #F2F4F7;
+  --input-bg: #F2F4F7;
 
   /* Системные цвета для shadcn */
   --background: #ffffff;
@@ -75,7 +85,7 @@
     width: 100%;
   }
   body {
-    @apply bg-background text-foreground font-body min-h-screen flex flex-col p-0;
+    @apply bg-background text-foreground font-manrope min-h-screen flex flex-col p-0;
   }
 }
 

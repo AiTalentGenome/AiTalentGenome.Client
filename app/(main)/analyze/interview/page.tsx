@@ -1,13 +1,14 @@
 "use client"
 
-import { AnalyzeSurface } from '@/components/analyze/AnalyzeSurface';
-import { AppFileUpload } from '@/components/analyze/AppFileUpload';
-import { FileUploadingStatus } from '@/components/analyze/FileUploadingStatus';
-import { FileUploadSuccess } from '@/components/analyze/FileUploadSuccess';
+import { AnalyzeSurface } from '@/components/analyze/features/AnalyzeSurface';
+import { AppFileUpload } from '@/components/controls/FileUploader/AppFileUpload';
+import { FileUploadingStatus } from '@/components/controls/FileUploader/FileUploadingStatus';
+import { FileUploadSuccess } from '@/components/controls/FileUploader/FileUploadSuccess';
 import { Button } from '@/components/controls/Button';
 import { useUploadStore } from '@/store/useUploadStore';
 import { ChevronLeft, FileText } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { FileUploadStep } from '@/components/custom/FileUploadStep';
 
 export default function InterviewStepPage() {
     const router = useRouter()
@@ -26,24 +27,15 @@ export default function InterviewStepPage() {
 
     return (
         <div className="space-y-8 animate-in fade-in duration-500">
-            <AnalyzeSurface
-                onDragOver={(e) => { e.preventDefault(); setDragging(true); }}
-                onDragLeave={() => setDragging(false)}
-                onDrop={(e) => { e.preventDefault(); handleFiles(e.dataTransfer.files); }}
-            >
-                {isUploading ? (
-                    <FileUploadingStatus fileName={file?.name} iconPicture="/interview/record.svg" />
-                ) : isSuccess ? (
-                    <FileUploadSuccess fileName={file?.name || ""} onDelete={removeFile} iconPicture="/interview/recordSuccess.svg" successText="Запись собеседования загружена" />
-                ) : (
-                    <AppFileUpload
-                        buttonText="Загрузить запись собеседования"
-                        icon={FileText}
-                        formats={["mp3", "mp4", "mov"]}
-                        separator="/" 
-                        onFileSelect={handleFiles} />
-                )}
-            </AnalyzeSurface>
+            <FileUploadStep
+                buttonText="Загрузить запись собеседования"
+                formats={["mp3", "mp4", "mov"]}
+                statusIcon="/interview/record.svg"
+                successIcon="/interview/recordSuccess.svg"
+                successText="Запись собеседования загружена"
+                onSaveDraft={() => console.log("Специфичный сейв для интервью")}
+                onNext={() => router.push("/analyze/summary")}
+            />
 
             <div className="flex justify-between items-center">
                 <Button

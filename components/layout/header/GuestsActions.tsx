@@ -28,7 +28,7 @@ export default function GuestsActions() {
 
             <div className="flex items-center gap-2">
                 <Globe className="w-5 h-5 text-[#1a1a1a]" strokeWidth={1.5} />
-                <span className="font-semibold text-[16px] leading-6 font-body">RU</span>
+                <span className="font-semibold text-[16px] leading-6 font-manrope">RU</span>
             </div>
         </div>
     )

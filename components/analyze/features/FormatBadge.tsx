@@ -31,7 +31,7 @@ export const FormatBadge = ({ type, className }: FormatBadgeProps) => {
     >
       <span className={cn(
         "text-white text-center antialiased select-none",
-        "font-body font-normal text-[14px] leading-4.5 uppercase"
+        "font-manrope font-normal text-[14px] leading-4.5 uppercase"
       )}>
         {type}
       </span>

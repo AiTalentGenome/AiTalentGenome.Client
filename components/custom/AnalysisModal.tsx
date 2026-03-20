@@ -57,7 +57,7 @@ export const AnalysisModal = ({
                         <DialogTitle className="font-open-sans font-semibold text-[22px] leading-6 text-footer-text">
                             {isSuccess ? "Черновик сохранен" : "Вы покидаете страницу анализа"}
                         </DialogTitle>
-                        <DialogDescription className="font-body font-semibold text-[16px] text-footer-text leading-6">
+                        <DialogDescription className="font-manrope font-semibold text-[16px] text-footer-text leading-6">
                             {isSuccess
                                 ? "Вы сможете найти сохраненный черновик в личном кабинете и продолжить анализ позднее"
                                 : "Сохраните черновик, чтобы продолжить позднее"}

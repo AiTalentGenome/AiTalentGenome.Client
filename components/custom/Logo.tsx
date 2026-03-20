@@ -37,7 +37,7 @@ export const Logo = ({
       {!hideText && (
         <span
           className={cn(
-            "font-heading font-normal whitespace-nowrap",
+            "font-unbounded font-normal whitespace-nowrap",
             "leading-none tracking-logo text-[#1a1a1a]", 
             textClassName
           )}

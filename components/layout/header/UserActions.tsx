@@ -24,9 +24,9 @@ export default function UserActions() {
                 </div>
 
                 {/* Аватар */}
-                <div className="w-12 h-12 rounded-full p-0.5 bg-linear-to-tr from-[#2494B3] to-[#919999]">
+                <div className="w-12 h-12 rounded-full p-0.5 bg-linear-to-tr from-[#2494B3] to-inactive-input">
                     <div className="w-full h-full rounded-full bg-[#F2F4F7] flex items-center justify-center border-2 border-white overflow-hidden">
-                        <span className="font-body font-semibold text-sm text-[#1a1a1a]">АГ</span>
+                        <span className="font-manrope font-semibold text-sm text-[#1a1a1a]">АГ</span>
                     </div>
                 </div>
             </div>

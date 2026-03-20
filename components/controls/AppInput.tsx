@@ -23,7 +23,6 @@ export const AppInput = React.forwardRef<HTMLInputElement, AppInputProps>(
                         <Icon
                             className={cn(
                                 "absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors duration-200 z-10",
-                                /* Убрали лишние кавычки и проверили имена */
                                 isError ? "text-login-error" : (hasText ? "text-footer-text" : "text-inactive-input"),
                                 !isError && "group-focus-within:text-footer-text"
                             )}
@@ -39,7 +38,6 @@ export const AppInput = React.forwardRef<HTMLInputElement, AppInputProps>(
                             "text-footer-text",
                             Icon ? "pl-12" : "pl-4",
 
-                            /* ИСПРАВЛЕНО: Убрали лишнюю скобку ] в конце строки */
                             isError
                                 ? "border-login-error focus:border-login-error"
                                 : "border-inactive-input focus:border-footer-text",

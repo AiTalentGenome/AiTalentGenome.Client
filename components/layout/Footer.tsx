@@ -7,7 +7,7 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
     <footer className="w-full bg-footer-bg">
-      <div className="w-full container h-20 flex items-center justify-between font-body text-sm">
+      <div className="w-full container h-20 flex items-center justify-between font-manrope text-sm">
         <div className="text-footer-text">
           AI Talent Genome, {currentYear}
         </div>

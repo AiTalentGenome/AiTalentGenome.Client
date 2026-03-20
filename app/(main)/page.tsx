@@ -3,6 +3,7 @@
 import * as React from "react"
 import { useAuthStore } from "@/store/useAuthStore"
 import { HeroSection } from "@/components/home/HeroSection";
+import UserSection from "@/components/home/UserSection";
 
 export default function HomePage() {
   const isAuthorized = useAuthStore((state) => state.isAuthorized);
@@ -16,7 +17,7 @@ export default function HomePage() {
 
   return (
     <div className="container flex-1 flex items-center justify-center">
-      <h1 className="text-2xl font-heading">Добро пожаловать в личный кабинет</h1>
+      <UserSection />
     </div>
   );
 }

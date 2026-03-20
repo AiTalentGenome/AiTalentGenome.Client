@@ -14,7 +14,6 @@ export const AnalyzeSurface = ({
 
   const { isDragging, isUploading, isSuccess } = useUploadStore();
   
-  // ЛОГИКА ФОНА: Теперь variant не влияет на цвет фона в покое
   const getBackground = () => {
     if (isSuccess) return "bg-[#F2F4F7]"; 
     if (isUploading) return "bg-[#2494B380]"; 
@@ -22,8 +21,6 @@ export const AnalyzeSurface = ({
     return "bg-[#F2F4F7]"; // Всегда обычный серый в покое
   };
 
-  // ЛОГИКА ШТРИХОВКИ: Убрали variant из условия. 
-  // Теперь линии видны ТОЛЬКО при активном действии и если это еще НЕ успех.
   const showDashed = (isDragging || isUploading) && !isSuccess;
 
   return (
@@ -34,7 +31,7 @@ export const AnalyzeSurface = ({
         className
       )}
       style={showDashed ? {
-        backgroundImage: `url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='40' ry='40' stroke='%232494B3' stroke-width='4' stroke-dasharray='20%2c 15' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e")`,
+        backgroundImage: `url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='40' ry='40' stroke='%232494B3' stroke-width='5' stroke-dasharray='15%2c 15' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e")`,
       } : {}}
       {...props}
     >

@@ -3,7 +3,7 @@
 import * as React from "react"
 import { LucideIcon } from "lucide-react"
 import { Button } from "@/components/controls/Button"
-import { FormatBadge, type FormatType } from "./FormatBadge" // Импортируем наш компонент бейджей
+import { FormatBadge, type FormatType } from "../../analyze/features/FormatBadge" // Импортируем наш компонент бейджей
 
 interface AppFileUploadProps {
     onFileSelect: (files: FileList) => void;
@@ -47,7 +47,7 @@ export const AppFileUpload = ({
 
             {/* Гибкая строка форматов */}
             <div className="flex items-center gap-2 mt-1">
-                <span className="font-body text-[14px] text-[#798080] leading-4.5">
+                <span className="font-manrope text-[14px] text-[#798080] leading-4.5">
                     {prefixText}
                 </span>
                 
@@ -56,7 +56,7 @@ export const AppFileUpload = ({
                         <React.Fragment key={index}>
                             <FormatBadge type={fmt} />
                             {index < formats.length - 1 && (
-                                <span className="font-body text-[14px] text-[#798080] leading-none px-1">
+                                <span className="font-manrope text-[14px] text-[#798080] leading-none px-1">
                                     {separator}
                                 </span>
                             )}

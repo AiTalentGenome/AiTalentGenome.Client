@@ -37,14 +37,14 @@ export const VacancySelector = ({
               variant="outline"
               onClick={() => setIsEditing(true)}
             >
-              <span className="font-body font-medium">{selectedVacancy}</span>
+              <span className="font-manrope font-medium">{selectedVacancy}</span>
               <Pencil className="w-4 h-4 opacity-70" /> {/* Иконка карандаша намекает на изменение */}
             </Button>
 
             {/* Кнопка полного сброса */}
             <button 
               onClick={onReset}
-              className="p-2 text-[#919999] hover:text-primary transition-colors"
+              className="p-2 text-inactive-input hover:text-primary transition-colors"
               title="Удалить выбор"
             >
               <X className="w-5 h-5" />

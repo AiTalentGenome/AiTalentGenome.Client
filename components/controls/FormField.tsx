@@ -27,7 +27,7 @@ const FormField = React.forwardRef<HTMLInputElement, FormFieldProps>(
 
         {/* Вспомогательный текст */}
         {helperText && (
-          <p className="font-body text-[14px] leading-4 text-[#919999]">
+          <p className="font-manrope text-[14px] leading-4 text-[#919999]">
             {helperText}
           </p>
         )}

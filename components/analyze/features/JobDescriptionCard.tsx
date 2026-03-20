@@ -2,7 +2,7 @@
 
 import { X, ChevronRight, FileText } from "lucide-react"
 import { AnalyzeSurface } from "./AnalyzeSurface"
-import { Button } from "../controls/Button"
+import { Button } from "../../controls/Button"
 
 export const JobDescriptionCard = () => {
   return (
@@ -10,7 +10,7 @@ export const JobDescriptionCard = () => {
       <AnalyzeSurface>
         {/* Область редактирования текста */}
         <textarea
-          className="w-full grow bg-transparent border-none outline-none resize-none font-body text-base leading-6 text-[#1a1a1a] placeholder:text-gray-400"
+          className="w-full grow bg-transparent border-none outline-none resize-none font-manrope text-base leading-6 text-[#1a1a1a] placeholder:text-gray-400"
           placeholder="Введите или вставьте текст вакансии..."
           defaultValue={`Ищем Frontend Developer'а, который будет создавать удобные и современные интерфейсы...`}
           rows={12}

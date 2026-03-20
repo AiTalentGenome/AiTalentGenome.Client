@@ -3,11 +3,12 @@
 import * as React from "react"
 import Image from "next/image"
 import { X, Check, ChevronRight } from "lucide-react"
-import { Button } from "../controls/Button";
+import { Button } from "../Button";
 
 interface FileUploadSuccessProps {
   fileName: string;
   onDelete: () => void;
+  onNext?: () => void;
   iconPicture: string;
   successText: string;
 }
@@ -16,7 +17,8 @@ export const FileUploadSuccess = ({
   fileName,
   onDelete,
   iconPicture,
-  successText
+  successText,
+  onNext
 }: FileUploadSuccessProps) => {
 
   const formatFileName = (name: string) => {
@@ -57,7 +59,7 @@ export const FileUploadSuccess = ({
         </div>
 
         {/* Название файла */}
-        <span className="font-body text-[12px] leading-4 text-[#00566E] font-medium text-center">
+        <span className="font-manrope text-[12px] leading-4 text-[#00566E] font-medium text-center">
           {formatFileName(fileName)}
         </span>
       </div>
@@ -69,7 +71,7 @@ export const FileUploadSuccess = ({
           <Check className="w-4 h-4" strokeWidth={3} />
         </div>
 
-        <span className="font-body font-semibold text-[16px] leading-6 text-primary text-center antialiased">
+        <span className="font-manrope font-semibold text-[16px] leading-6 text-primary text-center antialiased">
           {successText}
         </span>
       </div>
@@ -77,6 +79,7 @@ export const FileUploadSuccess = ({
       <Button
           variant="default"
           className="max-h-14"
+          onClick={onNext}
         >
           Далее <ChevronRight className="w-6 h-11" />
         </Button>

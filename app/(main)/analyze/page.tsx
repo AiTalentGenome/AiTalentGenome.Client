@@ -6,8 +6,8 @@ import { Plus, X, ChevronRight } from "lucide-react"
 import { Button } from "@/components/controls/Button" // Твой основной компонент кнопки
 import { AppCombobox } from "@/components/controls/AppCombobox"
 import { cn } from "@/lib/utils"
-import { AnalyzeSurface } from "@/components/analyze/AnalyzeSurface"
-import { VacancySelector } from "@/components/analyze/VacancySelector"
+import { AnalyzeSurface } from "@/components/analyze/features/AnalyzeSurface"
+import { VacancySelector } from "@/components/analyze/features/VacancySelector"
 
 const vacancies = [
   { value: "1", label: "Frontend Developer" },
@@ -43,13 +43,13 @@ export default function UploadVacancyPage() {
       />
 
       {/* 2. Основная область ввода */}
-      <AnalyzeSurface className="grow">
+      <AnalyzeSurface className="grow px-8">
         <textarea
           value={vacancyText}
           onChange={(e) => setVacancyText(e.target.value)}
           className={cn(
-            "w-full h-full min-h-75 bg-transparent border-none outline-none resize-none",
-            "font-body text-base leading-relaxed text-[#1a1a1a] placeholder:text-[#919999]"
+            "w-full h-74.5 bg-transparent border-none outline-none resize-none",
+            "font-manrope text-base text-[#1a1a1a] font-medium text-[16px] leading-5.5 space-x-1 align-middle"
           )}
         />
       </AnalyzeSurface>
@@ -68,7 +68,7 @@ export default function UploadVacancyPage() {
         <Button 
           disabled
           variant="secondary"
-          className="bg-[#919999] hover:bg-[#919999]/90"
+          className="bg-inactive-input hover:bg-inactive-input/90"
         >
           Сохранить черновик
         </Button>

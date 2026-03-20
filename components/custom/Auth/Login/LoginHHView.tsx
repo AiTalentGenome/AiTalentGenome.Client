@@ -13,7 +13,7 @@ export const LoginHHView = ({ onOtherMethod }: { onOtherMethod: () => void }) =>
 
         <Image src="/star.svg" alt="Info" width={100} height={100} className="mt-1" />
 
-        <p className="font-body font-normal text-[16px] leading-5 text-black">
+        <p className="font-manrope font-normal text-[16px] leading-5 text-black">
           Войдите через кабинет работодателя на HeadHunter, чтобы автоматически перенести актуальные вакансии и отлики кандидатов
         </p>
 
@@ -33,9 +33,9 @@ export const LoginHHView = ({ onOtherMethod }: { onOtherMethod: () => void }) =>
             )}
           />
           <div>
-            <span className="font-body font-normal text-[16px] leading-6 text-[#797F7F] tracking-normal">
+            <label htmlFor="terms-checkbox-desc" className="font-manrope font-normal text-[16px] leading-6 text-[#797F7F] tracking-normal">
               Я принимаю условия пользовательского соглашения и даю согласие на обработку персональных данных
-            </span>
+            </label>
           </div>
         </div>
       </div>
