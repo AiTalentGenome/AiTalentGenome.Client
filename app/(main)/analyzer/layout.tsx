@@ -17,7 +17,7 @@ export default function AnalyzerLayout({ children }: { children: React.ReactNode
             <AppStepper FLOW={ANALYZER_FLOW} />
 
             <div className="space-y-9.5">
-                {pathname.startsWith("/analyzer/choose-candidates") && (
+                {!pathname.startsWith("/analyzer/choose-candidates") && (
                     <AnalyzeHeader
                         title={config.headerTitle}
                     />
