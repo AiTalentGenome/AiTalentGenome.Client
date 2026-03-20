@@ -49,7 +49,10 @@ export const AppStepper = ({ FLOW }: AppStepperProps) => {
   const pathname = usePathname();
 
   // Находим текущий шаг по URL
-  const currentStepData = FLOW.steps.find(step => step.path === pathname) || ANALYZE_FLOW.steps[0];
+  const currentStepData = [...FLOW.steps]
+    .reverse()
+    .find(step => pathname.startsWith(step.path)) || FLOW.steps[0];
+    
   const currentStepId = currentStepData.id;
 
   return (

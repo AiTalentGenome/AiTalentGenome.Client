@@ -8,23 +8,20 @@ import { usePathname } from "next/navigation";
 export default function AnalyzeLayout({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();
 
-    const config = ANALYZER_FLOW.steps.find(s => s.path === pathname)
+    const config = [...ANALYZER_FLOW.steps]
+        .reverse()
+        .find(s => pathname.startsWith(s.path)) || ANALYZER_FLOW.steps[0];
 
     return (
         <div className="flex flex-col gap-9.5 container mx-auto">
             <AppStepper FLOW={ANALYZER_FLOW} />
 
             <div className="space-y-9.5">
-                {pathname == "analyzer/choose-candidates" 
-                && 
-                <AnalyzeHeader
-                    title={config!.headerTitle}
-                />}
-                {pathname == "analyzer/choose-candidates/load-resume" 
-                && 
-                <AnalyzeHeader
-                    title={config!.headerTitle}
-                />}
+                {pathname.startsWith("/analyzer/choose-candidates") && (
+                    <AnalyzeHeader
+                        title={config.headerTitle}
+                    />
+                )}
                 {children}
             </div>
         </div>
