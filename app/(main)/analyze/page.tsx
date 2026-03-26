@@ -57,8 +57,7 @@ export default function UploadVacancyPage() {
       {/* 3. Нижняя панель действий */}
       <div className="flex justify-end items-center gap-4">
         <Button 
-          variant="outline" 
-          disabled
+          variant="secondary"
           onClick={handleClear}
           className="text-[#2494B3] border-[#2494B3] hover:bg-[#2494B3]/5 gap-2"
         >
@@ -67,7 +66,7 @@ export default function UploadVacancyPage() {
         
         <Button 
           disabled
-          variant="secondary"
+          variant="primary"
           className="bg-inactive-input hover:bg-inactive-input/90"
         >
           Сохранить черновик

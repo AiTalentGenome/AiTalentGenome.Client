@@ -76,8 +76,8 @@ export const LoginPhoneView = () => {
             </Button>
 
             <div className="space-y-5 mb-1">
-                <Button variant="secondary" className="w-full h-14 rounded-[20px] bg-secondary text-white gap-2">Войти с Google</Button>
-                <Button variant="secondary" className="w-full h-14 rounded-[20px] bg-secondary text-white gap-2">Войти с Yandex</Button>
+                <Button variant="primary" className="w-full h-14 rounded-[20px] bg-secondary text-white gap-2">Войти с Google</Button>
+                <Button variant="primary" className="w-full h-14 rounded-[20px] bg-secondary text-white gap-2">Войти с Yandex</Button>
             </div>
 
             <p className="font-open-sans text-[14px] text-center font-normal text-footer-text">

@@ -70,7 +70,7 @@ export const AnalysisModal = ({
                                 <Button onClick={closeModal} className="max-h-53 h-14">
                                     Продолжить
                                 </Button>
-                                <Button variant="secondary" onClick={closeModal} className="max-h-53 h-14">
+                                <Button variant="primary" onClick={closeModal} className="max-h-53 h-14">
                                     Выйти
                                 </Button>
                             </>
@@ -80,7 +80,7 @@ export const AnalysisModal = ({
                                 <Button onClick={handleSave} className="max-h-53 h-14">
                                     Сохранить черновик
                                 </Button>
-                                <Button variant="secondary" onClick={closeModal} className="max-h-53 h-14">
+                                <Button variant="primary" onClick={closeModal} className="max-h-53 h-14">
                                     Выйти
                                 </Button>
                             </>

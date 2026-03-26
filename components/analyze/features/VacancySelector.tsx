@@ -34,7 +34,7 @@ export const VacancySelector = ({
         {isConfirmed ? (
           <div className="flex items-center gap-3 animate-in zoom-in-95 duration-200">
             <Button
-              variant="outline"
+              variant="secondary"
               onClick={() => setIsEditing(true)}
             >
               <span className="font-manrope font-medium">{selectedVacancy}</span>
@@ -54,7 +54,7 @@ export const VacancySelector = ({
           /* СОСТОЯНИЕ: ИЗНАЧАЛЬНЫЙ ВЫБОР */
           <div className="flex items-center gap-4 animate-in fade-in slide-in-from-left-2">
             <Button
-              variant={isEditing ? "default" : "secondary"}
+              variant={isEditing ? "accent" : "secondary"}
               onClick={() => {
                 setIsEditing(true);
                 onReset();

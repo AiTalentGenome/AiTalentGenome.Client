@@ -9,11 +9,11 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground shadow hover:opacity-90 disabled:bg-[#F3F5F5] disabled:text-[#BCC8CC]",
-        secondary: "bg-secondary text-secondary-foreground shadow-sm hover:opacity-90 disabled:bg-[#F3F5F5] disabled:text-[#BCC8CC]",
-        outline: "border-2 border-primary bg-transparent text-primary hover:bg-primary/5 transition-colors disabled:bg-[#F3F5F5] disabled:text-[#BCC8CC] disabled:border-none",
         ghost: "hover:bg-accent/10 hover:text-accent disabled:bg-[#F3F5F5] disabled:text-[#BCC8CC]",
-        accent: "bg-accent text-white hover:opacity-90 disabled:bg-[#CC8F8F] disabled:text-white"
+        accent: "bg-accent-default text-white hover:bg-accent-hover active:bg-accent-pressed disabled:bg-accent-disabled",
+        default: "bg-white hover:bg-white active:bg-white disabled:bg-white hover:text-[#656666] active:text-[#191A1A] disabled:text-[#BCC8CC]",
+        primary: "bg-primary-default text-white hover:bg-primary-hover active:bg-primary-pressed disabled:bg-primary-disabled",
+        secondary: "border-[1.5px] border-secondary-default text-[#2494B3] hover:border-secondary-hover hover:bg-[#F3F5F5] hover:text-[#39A2BF] active:bg-[#F3F5F5] active:border-none active:text-[#6D7373] disabled:bg-secondary-disabled disabled:border-none disabled:text-[#BCC8CC]",
       },
       size: {
         figma: "h-[48px] px-7 rounded-[20px]",
@@ -28,7 +28,7 @@ const buttonVariants = cva(
       },
     },
     defaultVariants: {
-      variant: "default",
+      variant: "accent",
       size: "figma",
       fullWidth: false,
     },
@@ -38,18 +38,23 @@ const buttonVariants = cva(
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
-  asChild?: boolean
+  isLoading?: boolean; // Добавим для красоты
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, fullWidth, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button"
+  ({ className, variant, size, isLoading, children, ...props }, ref) => {
     return (
-      <Comp
-        className={cn(buttonVariants({ variant, size, fullWidth, className }))}
+      <button
+        className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
+        disabled={isLoading || props.disabled}
         {...props}
-      />
+      >
+        {isLoading ? (
+          <span className="mr-2 h-4 w-4 animate-spin border-2 border-current border-t-transparent rounded-full" />
+        ) : null}
+        {children}
+      </button>
     )
   }
 )

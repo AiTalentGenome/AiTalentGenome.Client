@@ -5,41 +5,36 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  /* Брейкпоинты */
-  --breakpoint-pc-sm: 1280px;
-  --breakpoint-pc-md: 1440px;
-  --breakpoint-pc-lg: 1920px;
-
   /* Шрифты — УБРАЛИ КРУГЛЫЕ СКОБКИ */
   --font-unbounded: var(--font-unbounded);
   --font-manrope: var(--font-manrope);
   --font-open-sans: var(--font-open-sans);
   --font-inter: var(--font-inter);
-  
-  /* Привязываем конкретные элементы к шрифтам */
-  --font-primary-button: var(--font-manrope);
-  --font-input-placeholder: var(--font-manrope);
 
-  /* Цвета */
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
-  --color-accent: var(--accent);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-text-muted: var(--text-muted);
-  --color-input-bg: var(--input-bg);
-  --color-select-bg: var(--select-bg);
-  --color-footer-bg: var(--footer-bg);
-  --color-footer-text: var(--footer-text);
-  --color-focus-input: var(--focus-input);
-  --color-inactive-input: var(--inactive-input);
-  --color-error: var(--error);
-  --color-analyze-done: var(--analyze-done);
+  /* Button&text */
+  /* Accent (Teal/Blue) */
+  --color-accent-default: var(--accent-default);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-pressed: var(--accent-pressed);
+  --color-accent-disabled: var(--accent-disabled);
+
+  /* Primary (Gray) */
+  --color-primary-default: var(--primary-default);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-pressed: var(--primary-pressed);
+  --color-primary-disabled: var(--primary-disabled);
+
+  /* Secondary */
+  --color-secondary-default: var(--secondary-default);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-secondary-pressed: var(--secondary-pressed);
+  --color-secondary-disabled: var(--secondary-disabled);
+
+  /* Text Colors */
+  --color-text-main: var(--text-main);
+  --color-text-hover: var(--text-hover);
+  --color-text-pressed: var(--text-pressed);
+  --color-text-disabled: var(--text-disabled);
 
   --radius-select: 16px;
   --tracking-logo: 0.02em;
@@ -47,21 +42,28 @@
 }
 
 :root {
-  /* Цвета вашего коммерческого проекта */
-  --text-muted: #606367;
-  --primary: #2494B3;
-  --primary-foreground: #ffffff;
-  --secondary: #919999;
-  --secondary-foreground: #ffffff;
-  --accent: #B24949;
-  --focus-input: #323333;
-  --analyze-done: #00A88C;
-  --error: #E0057E;
-  --inactive-input: #919999;
-  --footer-text: #323333;
-  --footer-bg: #F5F5F5;
-  --select-bg: #F2F4F7;
-  --input-bg: #F2F4F7;
+  --accent-default: #2494B3;
+  --accent-hover: #52B1CC;
+  --accent-pressed: #0F7B99;
+  --accent-disabled: #F3F5F5;
+
+  /* Primary (Gray) */
+  --primary-default: #919999;
+  --primary-hover: #AAB2B2;
+  --primary-pressed: #6D7373;
+  --primary-disabled: #F3F5F5;
+
+  /* Secondary */
+  --secondary-default: #919999;
+  --secondary-hover: #AAB2B2;
+  --secondary-pressed: #6D7373;
+  --secondary-disabled: #F3F5F5;
+
+  /* Text Colors */
+  --text-main: #323333;
+  --text-hover: #656666;
+  --text-pressed: #191A1A;
+  --text-disabled: #BCC8CC;
 
   /* Системные цвета для shadcn */
   --background: #ffffff;
@@ -85,7 +87,7 @@
     width: 100%;
   }
   body {
-    @apply bg-background text-foreground font-manrope min-h-screen flex flex-col p-0;
+    @apply bg-white text-text-main font-manrope min-h-screen flex flex-col p-0;
   }
 }
 
@@ -94,11 +96,11 @@
   width: 100%;
   padding-inline: 2rem; /* Базовый отступ 24px для мобилок */
   max-width: 1920px;
-  
-  @variant pc-sm {
+
+  @variant xl {
     padding-inline: 4rem; /* 64px для 1280px */
   }
-  @variant pc-lg {
+  @variant 2xl {
     padding-inline: 5rem; /* 80px для 1920px */
   }
 }

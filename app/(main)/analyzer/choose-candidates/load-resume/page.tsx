@@ -46,7 +46,7 @@ export default function LoadResumePage() {
         />
         <div className="flex justify-between items-center">
           <Button
-            variant="outline"
+            variant="secondary"
             onClick={(() => openModal('exit-warning'))}
             className="gap-4"
           >

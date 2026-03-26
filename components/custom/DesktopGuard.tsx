@@ -4,8 +4,7 @@ import { Monitor } from 'lucide-react'
 
 export const DesktopGuard = () => {
   return (
-    // Класс pc-sm:hidden означает: "скрой этот блок, когда экран станет 1280px и больше"
-    <div className="fixed inset-0 z-10000 flex flex-col items-center justify-center bg-white p-8 text-center pc-sm:hidden">
+    <div className="fixed inset-0 z-10000 flex flex-col items-center justify-center bg-white p-8 text-center xl:hidden">
       <div className="flex flex-col items-center gap-6 max-w-sm">
         {/* Иконка монитора для наглядности */}
         <div className="w-16 h-16 bg-[#F5F5F5] rounded-2xl flex items-center justify-center text-[#2494B3]">

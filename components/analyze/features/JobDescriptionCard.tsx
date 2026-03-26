@@ -21,7 +21,7 @@ export const JobDescriptionCard = () => {
       <div className="flex justify-end items-center gap-4">
         {/* Кнопка Очистить: вариант Outline с кастомным цветом из макета */}
         <Button
-          variant="outline"
+          variant="secondary"
           className="border-[#2494B3] text-[#2494B3] rounded-[20px] h-12 px-6 gap-2 hover:bg-[#2494B3]/5"
         >
           Очистить <X className="w-4 h-4" />
@@ -29,7 +29,7 @@ export const JobDescriptionCard = () => {
 
         {/* Кнопка Сохранить: вариант Secondary (серый) */}
         <Button
-          variant="secondary"
+          variant="primary"
           className="bg-[#919999] text-white rounded-[20px] h-12 px-6 hover:bg-[#919999]/90"
         >
           Сохранить черновик

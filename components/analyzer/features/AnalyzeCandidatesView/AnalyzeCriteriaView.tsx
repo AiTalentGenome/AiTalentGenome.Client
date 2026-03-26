@@ -58,7 +58,7 @@ export default function AnalyzeCriteriaView() {
                     x: -65,
                     y: -80
                 }}>
-                    <Button variant="default" className='h-14'>Начать анализ</Button>
+                    <Button variant="accent" className='h-14'>Начать анализ</Button>
                 </OnboardingStep>
                 
             </div>

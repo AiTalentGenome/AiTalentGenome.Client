@@ -77,7 +77,7 @@ export const FileUploadSuccess = ({
       </div>
 
       <Button
-          variant="default"
+          variant="accent"
           className="max-h-14"
           onClick={onNext}
         >

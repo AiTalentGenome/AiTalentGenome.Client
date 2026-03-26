@@ -26,7 +26,7 @@ export default function ResumesStepPage() {
       />
       <div className="flex justify-between items-center">
         <Button
-          variant="outline"
+          variant="secondary"
           onClick={() => router.back()}
           className="gap-4"
         >
@@ -34,7 +34,7 @@ export default function ResumesStepPage() {
         </Button>
 
         <Button
-          variant="secondary"
+          variant="primary"
           onClick={(() => openModal('exit-warning'))}
           className="gap-2"
         >

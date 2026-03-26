@@ -40,7 +40,7 @@ export const LoginHHView = ({ onOtherMethod }: { onOtherMethod: () => void }) =>
         </div>
       </div>
 
-      <Button disabled={!isAgreed} variant={"accent"} fullWidth size={"accent"} >
+      <Button disabled={!isAgreed} variant={"accent"} fullWidth size={"accent"} className="w-full" >
         Войти через HeadHunter
       </Button>
 

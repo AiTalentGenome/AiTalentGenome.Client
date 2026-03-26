@@ -39,7 +39,7 @@ export default function InterviewStepPage() {
 
             <div className="flex justify-between items-center">
                 <Button
-                    variant="outline"
+                    variant="secondary"
                     onClick={() => router.back()}
                     className="gap-4"
                 >
