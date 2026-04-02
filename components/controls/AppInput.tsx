@@ -17,14 +17,14 @@ export const AppInput = React.forwardRef<HTMLInputElement, AppInputProps>(
 
         return (
             <div>
-                <p className="text-footer-text font-open-sans text-[14px] leading-5 font-semibold mb-2">{header}</p>
+                <p className="text-text-default-black font-open-sans text-[14px] leading-5 font-semibold mb-2">{header}</p>
                 <div className={cn("relative group w-full", containerClassName)}>
                     {Icon && (
                         <Icon
                             className={cn(
                                 "absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors duration-200 z-10",
-                                isError ? "text-login-error" : (hasText ? "text-footer-text" : "text-inactive-input"),
-                                !isError && "group-focus-within:text-footer-text"
+                                isError ? "text-login-error" : (hasText ? "text-text-default-black" : "text-inactive-input"),
+                                !isError && "group-focus-within:text-text-default-black"
                             )}
                             strokeWidth={1.5}
                         />
@@ -35,12 +35,12 @@ export const AppInput = React.forwardRef<HTMLInputElement, AppInputProps>(
                         className={cn(
                             "font-open-sans text-[20px] placeholder:text-inactive-input w-full h-14 bg-white",
                             "border-2 rounded-[20px] pr-4 outline-none transition-all duration-200",
-                            "text-footer-text",
+                            "text-text-default-black",
                             Icon ? "pl-12" : "pl-4",
 
                             isError
                                 ? "border-login-error focus:border-login-error"
-                                : "border-inactive-input focus:border-footer-text",
+                                : "border-inactive-input focus:border-text-default-black",
 
                             className
                         )}

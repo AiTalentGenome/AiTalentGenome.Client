@@ -68,7 +68,7 @@ export const LoginPhoneView = () => {
 
             {/* ТЕПЕРЬ КНОПКА СЛУШАЕТ ПРАВИЛЬНУЮ ПЕРЕМЕННУЮ */}
             <Button
-                variant={"default"}
+                variant={"accent"}
                 disabled={!isComplete} // Инвертируем: если не готово, то disabled
                 onClick={handleNext}
             >
@@ -76,11 +76,11 @@ export const LoginPhoneView = () => {
             </Button>
 
             <div className="space-y-5 mb-1">
-                <Button variant="primary" className="w-full h-14 rounded-[20px] bg-secondary text-white gap-2">Войти с Google</Button>
-                <Button variant="primary" className="w-full h-14 rounded-[20px] bg-secondary text-white gap-2">Войти с Yandex</Button>
+                <Button variant="primary" className="w-full h-14">Войти с Google</Button>
+                <Button variant="primary" className="w-full h-14">Войти с Yandex</Button>
             </div>
 
-            <p className="font-open-sans text-[14px] text-center font-normal text-footer-text">
+            <p className="font-open-sans text-[14px] text-center font-normal text-text-default-black">
                 Нет учетной записи? <button className="font-bold hover:underline">Зарегистрируйтесь</button>
             </p>
         </div>

@@ -31,14 +31,12 @@
   --color-secondary-disabled: var(--secondary-disabled);
 
   /* Text Colors */
-  --color-text-main: var(--text-main);
-  --color-text-hover: var(--text-hover);
-  --color-text-pressed: var(--text-pressed);
-  --color-text-disabled: var(--text-disabled);
-
-  --radius-select: 16px;
-  --tracking-logo: 0.02em;
-  --container-2xl: 1920px;
+  --color-text-default-black: var(--text-default-black);
+  --color-text-dark-gray: var(--text-dark-gray);
+  --color-text-gray: var(--text-gray);
+  --color-text-light-gray: var(--text-light-gray);
+  --color-text-blue: var(--text-blue);
+  --color-text-red: var(--text-red);
 }
 
 :root {
@@ -60,10 +58,12 @@
   --secondary-disabled: #F3F5F5;
 
   /* Text Colors */
-  --text-main: #323333;
-  --text-hover: #656666;
-  --text-pressed: #191A1A;
-  --text-disabled: #BCC8CC;
+   --text-default-black: #323333;
+  --text-dark-gray: #606367;
+  --text-gray: #797F7F;
+  --text-light-gray: #919999;
+  --text-blue: #00566E;
+  --text-red: #E0057E;
 
   /* Системные цвета для shadcn */
   --background: #ffffff;
@@ -87,7 +87,7 @@
     width: 100%;
   }
   body {
-    @apply bg-white text-text-main font-manrope min-h-screen flex flex-col p-0;
+    @apply bg-white text-text-default-black font-manrope min-h-screen flex flex-col p-0;
   }
 }
 

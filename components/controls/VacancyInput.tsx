@@ -12,7 +12,7 @@ export default function VacancyInput({ hintText }: VacancyInputProps) {
           type="text"
           placeholder="Введите должность кандидата"
           className={cn(
-            "bg-[#F2F5F5] w-173.75 placeholder:text-text-muted placeholder:text-[16px]",
+            "bg-[#F2F5F5] w-173.75 placeholder:text-text-dark-gray placeholder:text-[16px]",
             "font-manrope font-normal text-[16px] text-[#1D2939] border-none outline-none leading-6 space-x-4 p-4 rounded-[16px]",
           )}
         />

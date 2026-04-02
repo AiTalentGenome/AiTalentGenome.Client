@@ -3,14 +3,19 @@
 import Image from 'next/image'
 import MainHeader from '../custom/Headers/MainHeader'
 import { useRouter } from 'next/navigation'
+import { useMe } from '@/hooks/queries/auth/useMe'
 
 export default function UserSection() {
   const router = useRouter()
+  const { data: user } = useMe()
+  const welcomeName = user?.firstName || "Пользователь"
+
+  console.log(user)
 
   return (
     <div className='flex flex-col gap-16 -mt-15'> 
       <div className="flex flex-col items-center gap-5">
-        <MainHeader title='Алина, добро пожаловать!' />
+        <MainHeader title={`${welcomeName}, добро пожаловать!`} />
         <p className="font-manrope font-light text-[20px] leading-4 space-y-4">Выберите, что вы хотите сделать сегодня</p>
       </div>
       

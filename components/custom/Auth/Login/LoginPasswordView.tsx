@@ -45,7 +45,7 @@ export const LoginPasswordView = () => {
         </p>
       }
 
-      <Button variant={"default"} disabled={hasError}>
+      <Button variant={"accent"} disabled={hasError}>
         Далее
       </Button>
     </div>

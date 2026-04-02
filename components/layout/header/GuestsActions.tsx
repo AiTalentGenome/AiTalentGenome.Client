@@ -22,8 +22,8 @@ export default function GuestsActions() {
             </div>
 
             <div className="hidden sm:flex items-center gap-4">
-                <Button variant="accent" onClick={() => router.push("/login")}>Войти</Button>
-                <Button variant="primary" onClick={() => router.push("/register")}>Регистрация</Button>
+                <Button variant="accent" onClick={() => router.push("login")}>Войти</Button>
+                <Button variant="primary" onClick={() => router.push("register")}>Регистрация</Button>
             </div>
 
             <div className="flex items-center gap-2">

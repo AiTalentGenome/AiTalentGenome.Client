@@ -20,7 +20,7 @@ export const HintBubble = ({ text, position, isActive }: HintBubbleProps) => {
           style={position} // Теперь TS не будет ругаться на transform
           className="absolute z-[100] pointer-events-none"
         >
-          <div className="relative bg-white text-footer-text p-4 rounded-[16px] shadow-2xl max-w-[180px]">
+          <div className="relative bg-white text-text-default-black p-4 rounded-[16px] shadow-2xl max-w-[180px]">
             <p className="font-manrope font-semibold text-[14px] leading-5 text-center">
               {text}
             </p>

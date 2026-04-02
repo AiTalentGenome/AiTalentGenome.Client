@@ -35,7 +35,7 @@ export const AuthHeader = ({ showBack, onBack }: AuthHeaderProps) => {
             </div>
 
             {!isVerificationView && 
-            <h2 className="font-open-sans font-semibold text-[22px] text-footer-text mb-1.5">
+            <h2 className="font-open-sans font-semibold text-[22px] text-text-default-black mb-1.5">
                 {authMode === 'login' ? 'Вход в личный кабинет' : 'Регистрация'}
             </h2>}
 

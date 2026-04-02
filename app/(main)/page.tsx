@@ -4,9 +4,10 @@ import * as React from "react"
 import { useAuthStore } from "@/store/useAuthStore"
 import { HeroSection } from "@/components/home/HeroSection";
 import UserSection from "@/components/home/UserSection";
+import { useMe } from "@/hooks/queries/auth/useMe";
 
 export default function HomePage() {
-  const isAuthorized = useAuthStore((state) => state.isAuthorized);
+  const { isAuthorized, isLoading } = useMe()
 
   if (!isAuthorized) {
     return (

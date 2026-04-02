@@ -20,7 +20,7 @@ export default function AnalyzeCriteriaView() {
                     className={cn(
                         "block w-24 rounded-lg",
                         "px-3.5 py-4.25 bg-white",
-                        "placeholder:font-manrope placeholder:font-medium placeholder:text-[14px] placeholder:leading-4.5 placeholder:text-[#797F7F]",
+                        "placeholder:font-manrope placeholder:font-medium placeholder:text-[14px] placeholder:leading-4.5 placeholder:text-text-gray",
                         "outline-none focus:border-[#24B3AC] transition-all",
                         "text-center font-manrope font-medium text-[14px] leading-4.5 align-middle"
                     )}
@@ -47,9 +47,9 @@ export default function AnalyzeCriteriaView() {
                     placeholder='Пример: английский B2+, опыт работы в горнодобывающих компаниях, не менее 1 года в среднем на местах работ'
                     className={cn(
                         "w-full h-32 block resize-none px-4 py-3",
-                        "bg-white border border-[#EBEBEB] rounded-[16px]",
+                        "bg-white border border-[#EBEBEB] rounded-2xl",
                         "font-manrope text-[14px] leading-relaxed text-[#1a1a1a]",
-                        "placeholder:font-manrope placeholder:font-medium placeholder:text-[14px] placeholder:leading-4.5 placeholder:text-[#797F7F]",
+                        "placeholder:font-manrope placeholder:font-medium placeholder:text-[14px] placeholder:leading-4.5 placeholder:text-text-gray",
                         "font-manrope font-medium text-[14px] leading-4.5",
                         "outline-none transition-all overflow-hidden"
                     )}

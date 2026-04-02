@@ -17,8 +17,6 @@ export const RegisterPhonePasswordView = () => {
   const hasError = !!errorText && password.length > 0;
   
   const handleNext = () => {
-    // В реальном проекте здесь будет запрос к API для отправки SMS
-    // Но сейчас мы просто переключаем экран
     if (allRequirementsMet && !hasError) {
       openAuth('auth-verify-phone');
     }
@@ -33,7 +31,6 @@ export const RegisterPhonePasswordView = () => {
   return (
     <div className="flex flex-col gap-5 w-full animate-in slide-in-from-right-4 duration-300">
       <div className="space-y-5">
-        {/* Поле Email (уже заполнено и можно сделать его disabled или оставить так) */}
         <PatternFormat
           format="+7 (###) ###-##-##"
           value={phoneNumber}
@@ -66,7 +63,7 @@ export const RegisterPhonePasswordView = () => {
 
       <PasswordRequirements password={password} />
 
-      <Button variant={"default"} disabled={!allRequirementsMet || hasError} onClick={handleNext}>
+      <Button variant={"accent"} disabled={!allRequirementsMet || hasError} onClick={handleNext}>
         Далее
       </Button>
     </div>

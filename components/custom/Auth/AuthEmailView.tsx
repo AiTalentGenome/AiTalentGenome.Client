@@ -41,14 +41,14 @@ export const AuthEmailView = () => {
         onChange={(e) => setLocalEmail(e.target.value)}
       />
 
-      <Button variant={"default"} disabled={localEmail.length === 0} onClick={handleNext}>Далее</Button>
+      <Button variant={"accent"} disabled={localEmail.length === 0} onClick={handleNext}>Далее</Button>
 
       <div className="space-y-5 mb-1">
-        <Button variant="primary" className="w-full h-14 rounded-[20px] bg-secondary text-white gap-2">Войти с Google</Button>
-        <Button variant="primary" className="w-full h-14 rounded-[20px] bg-secondary text-white gap-2">Войти с Yandex</Button>
+        <Button variant="primary" className="w-full h-14">Войти с Google</Button>
+        <Button variant="primary" className="w-full h-14">Войти с Yandex</Button>
       </div>
 
-      <p className="font-open-sans text-[14px] text-center font-normal text-footer-text">
+      <p className="font-open-sans text-[14px] text-center font-normal text-text-default-black">
         {authMode === "login" ?
           <>
             Нет учетной записи? <button className="font-bold hover:underline">Зарегистрируйтесь</button>

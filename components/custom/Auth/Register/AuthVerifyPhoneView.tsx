@@ -20,11 +20,11 @@ export const AuthVerifyPhoneView = () => {
 
   return (
     <div className="flex flex-col items-center w-full animate-in fade-in zoom-in-95 duration-300 mt-1 -mb-2">
-      <h2 className="font-open-sans font-semibold text-[22px] leading-6 text-center text-footer-text mb-4">
+      <h2 className="font-open-sans font-semibold text-[22px] leading-6 text-center text-text-default-black mb-4">
         Подтвердите ваш сотовый номер
       </h2>
       
-      <p className="font-open-sans font-normal text-[14px] leading-5 text-center text-footer-text mb-6 w-full">
+      <p className="font-open-sans font-normal text-[14px] leading-5 text-center text-text-default-black mb-6 w-full">
         Для активации вашего аккаунта, подтвердите код, отправленный на номер {maskedPhone}
       </p>
 
@@ -52,8 +52,8 @@ function Slot(props: SlotProps) {
     <div
       className={cn(
         "relative w-12 h-16 flex items-center justify-center transition-all duration-200",
-        "rounded-[16px] bg-[#F2F4F7] border-2 border-transparent",
-        "font-open-sans text-[24px] font-semibold text-footer-text",
+        "rounded-2xl bg-[#F2F4F7] border-2 border-transparent",
+        "font-open-sans text-[24px] font-semibold text-text-default-black",
         props.isActive && "border-primary bg-white shadow-sm",
       )}
     >

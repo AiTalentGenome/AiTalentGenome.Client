@@ -6,13 +6,13 @@ import { cn } from "@/lib/utils"
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className="w-full bg-footer-bg">
+    <footer className="w-full bg-[#F5F5F5]">
       <div className="w-full container h-20 flex items-center justify-between font-manrope text-sm">
-        <div className="text-footer-text">
+        <div className="text-text-default-black">
           AI Talent Genome, {currentYear}
         </div>
 
-        <Link href="/privacy" className="hover:text-primary transition-colors text-footer-text hidden sm:block">
+        <Link href="/privacy" className="hover:text-primary transition-colors text-text-default-black hidden sm:block">
           Политика конфиденциальности
         </Link>
 

@@ -61,7 +61,7 @@ export const RegisterLoginPasswordView = () => {
 
       <PasswordRequirements password={password} />
 
-      <Button variant={"default"} disabled={hasError} onClick={handleNext}>
+      <Button variant={"accent"} disabled={hasError} onClick={handleNext}>
         Далее
       </Button>
     </div>

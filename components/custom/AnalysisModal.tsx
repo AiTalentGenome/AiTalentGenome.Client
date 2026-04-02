@@ -54,10 +54,10 @@ export const AnalysisModal = ({
             <DialogContent className="max-w-122.5 rounded-4xl gap-8 border-none bg-white pt-21 pb-8 px-4">
                 <div className="flex flex-col items-center text-center gap-9.5 animate-in fade-in duration-300">
                     <DialogHeader className="space-y-3 text-center sm:text-center">
-                        <DialogTitle className="font-open-sans font-semibold text-[22px] leading-6 text-footer-text">
+                        <DialogTitle className="font-open-sans font-semibold text-[22px] leading-6 text-text-default-black">
                             {isSuccess ? "Черновик сохранен" : "Вы покидаете страницу анализа"}
                         </DialogTitle>
-                        <DialogDescription className="font-manrope font-semibold text-[16px] text-footer-text leading-6">
+                        <DialogDescription className="font-manrope font-semibold text-[16px] text-text-default-black leading-6">
                             {isSuccess
                                 ? "Вы сможете найти сохраненный черновик в личном кабинете и продолжить анализ позднее"
                                 : "Сохраните черновик, чтобы продолжить позднее"}

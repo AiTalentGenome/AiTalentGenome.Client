@@ -13,7 +13,7 @@ export default function AnalyzerLayout({ children }: { children: React.ReactNode
         .find(s => pathname.startsWith(s.path)) || ANALYZER_FLOW.steps[0];
 
     return (
-        <div className="flex flex-col gap-9.5 container mx-auto">
+        <div className="flex flex-col gap-9.5 container mx-auto mb-14">
             <AppStepper FLOW={ANALYZER_FLOW} />
 
             <div className="space-y-9.5">

@@ -4,8 +4,8 @@ import "@/app/globals.css";
 import { Header } from "@/components/layout/header/Header";
 import { Footer } from "@/components/layout/Footer";
 import { AnalysisModal } from "@/components/custom/AnalysisModal";
-import { AuthModal } from "@/components/custom/Auth/AuthModal";
 import { DesktopGuard } from "@/components/custom/DesktopGuard";
+import QueryProvider from "@/components/providers/QueryProvider";
 
 const unbounded = Unbounded({
   subsets: ["cyrillic", "latin"],
@@ -36,16 +36,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ru" className={`${unbounded.variable} ${manrope.variable} ${openSans.variable} ${inter.variable}`}>
       <body className="flex flex-col min-h-screen">
-        <DesktopGuard />
+        <QueryProvider>
+          <DesktopGuard />
 
-        <div className="hidden xl:flex flex-col min-h-screen grow">
-          <Header />
-          <main className="flex-1 flex flex-col">
-            {children}
-          </main>
-          <Footer />
-          <AnalysisModal />
-        </div>
+          <div className="hidden xl:flex flex-col min-h-screen grow">
+            <Header />
+            <main className="flex-1 flex flex-col">
+              {children}
+            </main>
+            <Footer />
+            <AnalysisModal />
+          </div>
+        </QueryProvider>
+
       </body>
     </html>
   );

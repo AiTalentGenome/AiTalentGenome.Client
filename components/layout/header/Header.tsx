@@ -6,9 +6,10 @@ import UserActions from "./UserActions"
 import GuestsActions from "./GuestsActions"
 import { useRouter } from "next/navigation"
 import { cn } from "@/lib/utils"
+import { useMe } from "@/hooks/queries/auth/useMe"
 
 export const Header = () => {
-    const { isAuthorized, setIsAuthorized } = useAuthStore()
+    const { isAuthorized, isLoading } = useMe()
     const router = useRouter()
 
     return (
@@ -23,17 +24,7 @@ export const Header = () => {
                 >
                     <Logo />
                 </div>
-                <button
-                    onClick={() => setIsAuthorized(!isAuthorized)}
-                    className={cn(
-                        "px-4 py-1.5 rounded-full text-[12px] font-manrope font-bold transition-all border",
-                        isAuthorized
-                            ? "bg-amber-50 border-amber-200 text-amber-700 hover:bg-amber-100"
-                            : "bg-indigo-50 border-indigo-200 text-indigo-700 hover:bg-indigo-100"
-                    )}
-                >
-                    {isAuthorized ? "🔓 Режим: Юзер" : "🔒 Режим: Гость"}
-                </button>
+                
                 <div className="mr-3">
 
                     {

@@ -17,8 +17,8 @@ const FormField = React.forwardRef<HTMLInputElement, FormFieldProps>(
             // Стили из Figma
             "w-full h-12 px-4 rounded-2xl", // Высота 48, отступы 24, радиус 20
             "bg-input-bg border-none outline-none", // Фон без рамок
-            "font-input-placeholder text-base leading-6 text-text-muted", // Manrope, 16px, 24px line-height
-            "placeholder:text-text-muted",
+            "font-input-placeholder text-base leading-6 text-text-dark-gray", // Manrope, 16px, 24px line-height
+            "placeholder:text-text-dark-gray",
             "focus:ring-2 focus:ring-primary/20 transition-all",
             className
           )}
