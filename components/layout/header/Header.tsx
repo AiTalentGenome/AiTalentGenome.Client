@@ -1,15 +1,14 @@
 "use client"
 
 import { Logo } from "../../custom/Logo"
-import { useAuthStore } from "@/store/useAuthStore"
 import UserActions from "./UserActions"
 import GuestsActions from "./GuestsActions"
 import { useRouter } from "next/navigation"
-import { cn } from "@/lib/utils"
-import { useMe } from "@/hooks/queries/auth/useMe"
+import { useHHAuth } from "@/features/hh-auth/hooks/hh-use-auth"
+import { APP_ROUTES } from "@/shared/config/routes"
 
 export const Header = () => {
-    const { isAuthorized, isLoading } = useMe()
+    const { isLoggedIn, isLoading } = useHHAuth()
     const router = useRouter()
 
     return (
@@ -19,17 +18,16 @@ export const Header = () => {
                 <div
                     className="cursor-pointer"
                     onClick={() => {
-                        router.push("/");
+                        router.push(APP_ROUTES.MAIN.MAIN);
                     }}
                 >
                     <Logo />
                 </div>
-                
-                <div className="mr-3">
 
-                    {
-                        isAuthorized ? <UserActions /> : <GuestsActions />
-                    }
+                <div className="mr-3">
+                    {!isLoading && (
+                        isLoggedIn ? <UserActions /> : <GuestsActions />
+                    )}
                 </div>
             </div>
         </header>

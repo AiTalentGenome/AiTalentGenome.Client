@@ -1,19 +1,25 @@
 "use client"
 
-import * as React from "react"
-import { useAuthStore } from "@/store/useAuthStore"
 import { HeroSection } from "@/components/home/HeroSection";
 import UserSection from "@/components/home/UserSection";
-import { useMe } from "@/hooks/queries/auth/useMe";
+import { useHHAuth } from "@/features/hh-auth/hooks/hh-use-auth";
 
 export default function HomePage() {
-  const { isAuthorized, isLoading } = useMe()
+  const { isLoggedIn, isLoading } = useHHAuth()
 
-  if (!isAuthorized) {
+  // Пока мы не знаем, кто это, AuthWrapper покажет лоадер.
+  // Когда придет 401, isLoading станет false, а isAuthorized - false.
+  
+  if (isLoading) {
     return (
-      /* h-full и flex-1 заставляют страницу занять всё пространство main */
-      <HeroSection/>
+      <div className="flex min-h-screen items-center justify-center">
+         <div className="animate-pulse text-[#24B3AC] font-manrope">Загрузка...</div>
+      </div>
     );
+  }
+
+  if (!isLoggedIn) {
+    return <HeroSection />;
   }
 
   return (

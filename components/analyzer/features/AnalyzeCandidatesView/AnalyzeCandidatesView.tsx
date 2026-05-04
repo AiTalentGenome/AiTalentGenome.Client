@@ -34,7 +34,7 @@ export const AnalyzeCandidatesView = () => {
       </main>
 
       {/* 3. ПРАВАЯ ПАНЕЛЬ (Критерии анализа) */}
-      <aside className="pt-10 bg-footer-bg">
+      <aside className="pt-10 bg-[#F5F5F5] border-[#F0F0F0]">
         <OnboardingStep
           step={1}
           text="Заполните критерии"

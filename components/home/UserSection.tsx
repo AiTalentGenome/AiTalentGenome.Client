@@ -3,12 +3,16 @@
 import Image from 'next/image'
 import MainHeader from '../custom/Headers/MainHeader'
 import { useRouter } from 'next/navigation'
-import { useMe } from '@/hooks/queries/auth/useMe'
+import { useHHAuth } from '@/features/hh-auth/hooks/hh-use-auth'
 
 export default function UserSection() {
   const router = useRouter()
-  const { data: user } = useMe()
+  
+  const { user, isLoading } = useHHAuth()
+
   const welcomeName = user?.firstName || "Пользователь"
+  
+  if (isLoading) return null; // Или легкий скелетон
 
   console.log(user)
 
