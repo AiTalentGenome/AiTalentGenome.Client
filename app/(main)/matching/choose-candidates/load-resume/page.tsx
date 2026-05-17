@@ -1,7 +1,7 @@
 "use client"
 
-import { GlobalOnboardingOverlay } from '@/components/analyzer/features/AnalyzeCandidatesView/GlobalOnboardingOverlay'
-import { OnboardingStep } from '@/components/analyzer/features/AnalyzeCandidatesView/OnboardingStep'
+import { GlobalOnboardingOverlay } from '@/components/analyzer/candidates/features/AnalyzeCandidatesView/GlobalOnboardingOverlay'
+import { OnboardingStep } from '@/components/analyzer/candidates/features/AnalyzeCandidatesView/OnboardingStep'
 import { Button } from '@/components/controls/Button'
 import VacancyInput from '@/components/controls/VacancyInput'
 import { FileUploadStep } from '@/components/custom/FileUploadStep'

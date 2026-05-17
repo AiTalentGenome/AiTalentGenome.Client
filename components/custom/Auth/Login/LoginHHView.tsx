@@ -10,7 +10,13 @@ export const LoginHHView = ({ onOtherMethod }: { onOtherMethod: () => void }) =>
   const handleHHLogin = () => {
     const clientId = process.env.NEXT_PUBLIC_HH_CLIENT_ID;
     const redirectUri = process.env.NEXT_PUBLIC_HH_REDIRECT_URI;
-    const HH_AUTH_URL = `https://hh.ru/oauth/authorize?response_type=code&client_id=${clientId}&redirect_uri=${redirectUri}`;
+    
+    // Добавляем параметр scope. 
+    // employer_negotiations — нужен для получения откликов.
+    // employer_vacancies — нужен для работы с вакансиями.
+    const scopes = "employer_negotiations employer_vacancies";
+    
+    const HH_AUTH_URL = `https://hh.ru/oauth/authorize?response_type=code&client_id=${clientId}&redirect_uri=${redirectUri}&scope=${encodeURIComponent(scopes)}`;
     
     // Перенаправляем пользователя
     window.location.href = HH_AUTH_URL;

@@ -18,7 +18,7 @@ export const Header = () => {
                 <div
                     className="cursor-pointer"
                     onClick={() => {
-                        router.push(APP_ROUTES.MAIN.MAIN);
+                        router.push(APP_ROUTES.HOME);
                     }}
                 >
                     <Logo />

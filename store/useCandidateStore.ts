@@ -1,9 +1,9 @@
 import { create } from 'zustand'
 
 interface CandidateState {
-  selectedIds: number[];
-  toggleCandidate: (id: number) => void;
-  setSelectedIds: (ids: number[]) => void;
+  selectedIds: string[]; // Поменяли number[] на string[]
+  toggleCandidate: (id: string) => void; // Поменяли number на string
+  setSelectedIds: (ids: string[]) => void; // Поменяли number[] на string[]
   resetSelection: () => void;
 }
 

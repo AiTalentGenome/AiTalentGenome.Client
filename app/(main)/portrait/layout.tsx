@@ -1,7 +1,7 @@
 "use client"
 
-import { AnalyzeHeader } from "@/components/analyze/features/AnalyzeHeader";
-import { AppStepper } from "@/components/analyze/features/AppStepper";
+import { AnalyzeHeader } from "@/components/features/analyze/AnalyzeHeader";
+import { AppStepper } from "@/components/controls/AppStepper";
 import { ANALYZE_FLOW } from "@/lib/analyze-config";
 import { usePathname } from "next/navigation";
 
@@ -11,7 +11,6 @@ export default function AnalyzeLayout({ children }: { children: React.ReactNode 
 
     return (
         <div className="flex flex-col gap-y-12 container mx-auto mb-14">
-            <AppStepper FLOW={ANALYZE_FLOW} />
 
             <div className="space-y-8">
                 <AnalyzeHeader

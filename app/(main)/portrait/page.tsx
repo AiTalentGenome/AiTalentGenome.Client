@@ -6,8 +6,8 @@ import { Plus, X, ChevronRight } from "lucide-react"
 import { Button } from "@/components/controls/Button" // Твой основной компонент кнопки
 import { AppCombobox } from "@/components/controls/AppCombobox"
 import { cn } from "@/lib/utils"
-import { AnalyzeSurface } from "@/components/analyze/features/AnalyzeSurface"
-import { VacancySelector } from "@/components/analyze/features/VacancySelector"
+import { AnalyzeSurface } from "@/components/features/analyze/AnalyzeSurface"
+import { VacancySelector } from "@/components/features/analyze/VacancySelector"
 
 const vacancies = [
   { value: "1", label: "Frontend Developer" },

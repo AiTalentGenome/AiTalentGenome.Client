@@ -3,8 +3,7 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
-import { usePathname } from "next/navigation"
-import { ANALYZE_FLOW, FlowsType } from "@/lib/analyze-config"
+import { FlowsType } from "@/lib/analyze-config";
 
 // 1. Выносим пути к иконкам в константу
 const STEP_ICONS = {
@@ -19,7 +18,8 @@ interface StepStarProps {
 }
 
 interface AppStepperProps {
-  FLOW: FlowsType
+  flow: FlowsType;
+  currentStepId: number;
 }
 
 const StepStar = ({ isCurrent, isCompleted }: StepStarProps) => {
@@ -45,26 +45,17 @@ const StepStar = ({ isCurrent, isCompleted }: StepStarProps) => {
   );
 };
 
-export const AppStepper = ({ FLOW }: AppStepperProps) => {
-  const pathname = usePathname();
-
-  // Находим текущий шаг по URL
-  const currentStepData = [...FLOW.steps]
-    .reverse()
-    .find(step => pathname.startsWith(step.path)) || FLOW.steps[0];
-    
-  const currentStepId = currentStepData.id;
+export const AppStepper = ({ flow, currentStepId }: AppStepperProps) => {
 
   return (
     <div className="py-3 bg-[#FAFAFA] rounded-[40px] flex items-center justify-center w-full xl:px-30 2xl:px-30">
       <div className="flex items-start justify-center w-full max-w-325 relative mt-2">
-        {FLOW.steps.map((step, index) => {
-          const isStepCompleted = currentStepId > step.id;
-          const isStepCurrent = currentStepId === step.id;
-          const isStepActiveOrDone = currentStepId >= step.id;
-
-          const isExtraStep = index > 2;
-
+        {flow.steps.map((step, index) => {
+          // Исправлено: эти переменные теперь четко соотносятся с тем, что ниже
+          const isCompleted = currentStepId > step.id;
+          const isCurrent = currentStepId === step.id;
+          const isActive = currentStepId >= step.id;
+            
           return (
             <React.Fragment key={step.id}>
               <div className={cn(
@@ -75,32 +66,33 @@ export const AppStepper = ({ FLOW }: AppStepperProps) => {
                   "h-10 flex items-center justify-center"
                   )}>
                   <StepStar
-                    isCurrent={isStepCurrent}
-                    isCompleted={isStepCompleted}
+                    isCurrent={isCurrent}
+                    isCompleted={isCompleted}
                   />
                 </div>
 
                 {/* Текст теперь будет расти ВНИЗ, не толкая звезду вверх */}
                 <span className={cn(
-                  "font-manrope font-normal text-[12px] leading-4 text-center", // mt-4 вместо gap, чтобы контролировать отступ от оси
-                  isStepActiveOrDone ? "text-[#1a1a1a]" : "text-inactive-input"
+                  "font-manrope font-normal text-[12px] leading-4 text-center", 
+                  isActive ? "text-[#1a1a1a]" : "text-inactive-input"
                 )}>
                   {step.label}
                 </span>
               </div>
 
               {/* Соединительные точки */}
-              {index < FLOW.steps.length - 1 && (
+              {/* Исправлено: изменен регистр FLOW на flow */}
+              {index < flow.steps.length - 1 && (
                 <div className={cn(
                   "flex-1 h-10 flex justify-center items-center xl:gap-14 2xl:gap-14 mb-8 xl:min-w-31.75 2xl:min-w-50",
                 )}>
-                  {[1, 2, 3, 4, 5].map((dot, index) => (
+                  {[1, 2, 3, 4, 5].map((dot, dotIndex) => (
                     <div
                       key={dot}
                       className={cn(
                         "xl:w-0.5 xl:h-0.5 2xl:w-1 2xl:h-1 rounded-full transition-all duration-500 flex-none",
-                        isStepCompleted ? "bg-[#2494B3]" : "bg-inactive-input/40",
-                        index > 2 ? "xl:hidden 2xl:flex" : "flex"
+                        isCompleted ? "bg-[#2494B3]" : "bg-inactive-input/40",
+                        dotIndex > 2 ? "xl:hidden 2xl:flex" : "flex"
                       )}
                     />
                   ))}

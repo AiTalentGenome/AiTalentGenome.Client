@@ -1,4 +1,5 @@
-import { SummarySection } from "@/components/analyze/features/ProfileSummaryView/SummaryCard";
+import { SummarySection } from "@/components/features/analyze/ProfileSummaryView/SummaryCard";
+
 
 export const portraitData1: SummarySection[] = [
     {

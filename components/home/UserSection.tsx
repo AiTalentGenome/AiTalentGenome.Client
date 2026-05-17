@@ -4,6 +4,7 @@ import Image from 'next/image'
 import MainHeader from '../custom/Headers/MainHeader'
 import { useRouter } from 'next/navigation'
 import { useHHAuth } from '@/features/hh-auth/hooks/hh-use-auth'
+import {APP_ROUTES} from "@/shared/config/routes";
 
 export default function UserSection() {
   const router = useRouter()
@@ -41,7 +42,7 @@ export default function UserSection() {
         {/* Карточка 2 */}
         <div className='flex flex-col items-center py-6 px-8 gap-5 bg-[#2494B399] rounded-[40px] w-125 cursor-pointer transition-all duration-300 ease-in-out 
                 hover:bg-[#2494B3] hover:scale-[1.02] hover:shadow-xl'
-                onClick={() => router.push("/analyzer/choose-candidates")}
+                onClick={() => router.push(`${APP_ROUTES.MATCHING.CHOOSE_VACANCY}`)}
                 >
           <Image width={50} height={50} src={"/star.svg"} alt='Star Picture' 
           />

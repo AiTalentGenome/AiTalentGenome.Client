@@ -1,10 +1,10 @@
 "use client"
 
-import SortingListView from "./SortingListView"
-import SubHeader from "@/components/custom/Headers/SubHeader"
-import ResumesListView from "./ResumesListView"
-import AnalyzeCriteriaView from "./AnalyzeCriteriaView"
-import { OnboardingStep } from "./OnboardingStep"
+import SubHeader from "@/components/custom/Headers/SubHeader";
+import AnalyzeCriteriaView from "./AnalyzeCriteriaView";
+import { OnboardingStep } from "./OnboardingStep";
+import ResumesListView from "./ResumesListView";
+import SortingListView from "./SortingListView";
 
 const sortingItems = [
   "Все отклики", "Неразобранные", "Статус", "Подумать",
@@ -12,7 +12,11 @@ const sortingItems = [
   "Предложение о работе", "Выход на работу", "Не подходит", "Проанализированные"
 ];
 
-export const AnalyzeCandidatesView = () => {
+interface AnalyzeCandidatesViewProps {
+  vacancyId: string | null;
+}
+
+export const AnalyzeCandidatesView = ({ vacancyId }: AnalyzeCandidatesViewProps) => {
   return (
     <div className="rounded-[40px] grid xl:grid-cols-[224px_1fr_224px] 2xl:grid-cols-[320px_1fr_350px] overflow-hidden border border-[#F0F0F0] bg-white relative">
       {/* 1. ЛЕВАЯ ПАНЕЛЬ (Сортировка) */}
@@ -30,7 +34,7 @@ export const AnalyzeCandidatesView = () => {
 
       {/* 2. ЦЕНТРАЛЬНАЯ ПАНЕЛЬ (Список кандидатов) */}
       <main className="flex flex-col px-3 py-2 overflow-y-auto">
-        <ResumesListView />
+        <ResumesListView vacancyId={vacancyId} />
       </main>
 
       {/* 3. ПРАВАЯ ПАНЕЛЬ (Критерии анализа) */}

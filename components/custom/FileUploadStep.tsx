@@ -3,7 +3,7 @@
 import { ChevronLeft, FileText, LucideIcon } from "lucide-react"
 import { useUploadStore } from "@/store/useUploadStore"
 
-import { AnalyzeSurface } from '@/components/analyze/features/AnalyzeSurface'
+import { AnalyzeSurface } from '@/components/features/analyze/AnalyzeSurface'
 import { AppFileUpload } from '@/components/controls/FileUploader/AppFileUpload'
 import { FileUploadingStatus } from '@/components/controls/FileUploader/FileUploadingStatus'
 import { FileUploadSuccess } from '@/components/controls/FileUploader/FileUploadSuccess'

@@ -3,7 +3,7 @@
 import * as React from "react"
 import { LucideIcon } from "lucide-react"
 import { Button } from "@/components/controls/Button"
-import { FormatBadge, type FormatType } from "../../analyze/features/FormatBadge" // Импортируем наш компонент бейджей
+import { FormatBadge, FormatType } from "@/components/features/analyze/FormatBadge";
 
 interface AppFileUploadProps {
     onFileSelect: (files: FileList) => void;
